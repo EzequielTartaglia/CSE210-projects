@@ -8,9 +8,9 @@ class Program
         Console.WriteLine(); /* Space */
 
         /* Input */
-        Console.Write("What was your final grade? ");
+        Console.Write("What was your final grade percentage? ");
         string grade = Console.ReadLine();
-        float grade_converted = float.Parse(grade); /* Convert the var to float */
+        int grade_converted = int.Parse(grade); /* Convert the var to int */
        
         Console.WriteLine(); /* Space */
 
