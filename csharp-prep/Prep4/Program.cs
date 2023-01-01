@@ -8,9 +8,11 @@ class Program
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");
 
         //The number of user
-        int userNumber;
-        //Counter (total)
+        int userNumber = -1;
+        //Sum counter (total)
         int totalSum = 0;
+        
+        int largestNumber = 0;
 
         //List of numbers
         List<int> numbers = new List<int>();
@@ -23,8 +25,12 @@ class Program
           string number = Console.ReadLine();
           userNumber = int.Parse(number);
 
-          //Add that number to the list
-          numbers.Add(userNumber);
+            //Add the number to the list if it is not 0
+            if (userNumber != 0)
+            {
+                numbers.Add(userNumber);
+            }
+          
 
         } while (userNumber != 0);
     
@@ -33,10 +39,31 @@ class Program
         {
             //Acumulate the total
             totalSum = totalSum + number;
+
+            //Get the largest number (if the number is higher than largest number
+            //receive that value)
+            if(number > largestNumber){
+                largestNumber = number;
+            }
         }
 
         //Print the total (sum)
         Console.WriteLine($"The sum is: {totalSum}");
+
+        
+        //Average of total(convert to float to be more exacly number)
+        float average;
+
+        if (totalSum > 0){
+            average = ((float)totalSum) / numbers.Count;
+        }
+        else{
+            average = 0;  
+        }
+        Console.WriteLine($"The average is: {average}");
+
+        //Find the largest number (highest)
+        Console.WriteLine($"The largest number is: {largestNumber}");
     }
        
 }
