@@ -35,7 +35,7 @@ class Program
             return numberToConvertToSquare * numberToConvertToSquare;
         }
 
-        //Create a function (with return string) to do a square from a number
+        //Create a function (with return string) to make a sentence
         static void DisplayResult (string userName,int squareNumber){
             Console.WriteLine($"{userName}, the square of your number is {squareNumber}");
         }
