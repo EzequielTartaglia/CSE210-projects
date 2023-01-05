@@ -11,9 +11,9 @@ public class Journal{
     //Methods
     public void Display(){
 
-        Console.WriteLine(); //Space
+        //Convert the fist letter of the string _name to capital letter
+        Console.WriteLine($"Name: "+char.ToUpper(_name[0]) + _name.Substring(1));
 
-        Console.WriteLine($"Name: {_name}");
         //exaample: Name: Ezequiel Tartaglia
         Console.WriteLine($"Entries:");
 
@@ -23,7 +23,7 @@ public class Journal{
         {
          //Display all the information inside the element
          elementEntry.Display();
-            
+         
         }
     }
 

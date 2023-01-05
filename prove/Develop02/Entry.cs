@@ -10,13 +10,12 @@ public class Entry
 
        //Methods
        public void Display(){
-        Console.WriteLine($"Date: {_date}");
-        Console.WriteLine($"Question: {_message}");
-        Console.WriteLine($"Your answer: {_response}");
+        Console.WriteLine($"Date: {_date} - Prompt: {_message}");
+        //Convert the fist letter of the string _resonse to capital letter
+        Console.WriteLine(char.ToUpper(_response[0]) + _response.Substring(1));
         //exaample: 
-        //Date: 04/01/2023
-        //Question: You did your journay today?
-        //Your answer: Yes, this day was amazing.
+        //Date: 04/01/2023 - Prompt: You did your journay today?
+        //Yes, this day was amazing.
 
         }
     
