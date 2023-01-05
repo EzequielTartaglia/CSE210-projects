@@ -8,3 +8,10 @@ This repository contains the starter code for many different projects. They are 
 * `prepare` - Starter projects for each of the preparation Learning Activities.
 * `prove` - Starter projects for each of the prove Developer projects.
 * `final` - Starter projects for final project.
+
+
+•Projects:
+ 
+ ♦ Personal journal project with Classes in C# .net:
+   - Source: prove\Develop02
+   - Features: With date counter, enter entries and save them to an external csv file, load from that external file, and exit the program.
