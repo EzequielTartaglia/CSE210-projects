@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+
+
         //Inputs
         Console.Write("Enter the book: ");
         string userBook = Console.ReadLine();
@@ -22,69 +24,46 @@ class Program
         Scripture scritureStructure = new Scripture(userPhase);
         string scripture = scritureStructure.GetCompleteScripture();
         Domain domain = new Domain(reference, scripture);
-        string CompletePhrase = domain.FraseJunta();
+        string completePhase = domain.FraseJunta();
 
+        //Create the object word to use the method 
+        Word word = new();
 
-        List<string> lista = new();
-        lista = scripture.Split(" ").ToList();
+        //Divide the list for each space between the words
+        List<string> list = new();
+        list = scripture.Split(" ").ToList();
 
-        //A list will change to "-" 
-        List<string> listWithSlash = new();
+        //Create a list to save the list with slashes (-)
+        List<string> listWithSlashs = new();
         bool condition = true;
 
+        //Get the complete phase
+        Console.Clear(); //Clean the console and print the complete phase
+        word.GetCompletePhase(completePhase, list, condition, reference);
 
-        Console.WriteLine($"Original quote: {CompletePhrase}");
-        while (lista.Any(s => !s.All(c => c == '-')) && condition)
+
+        listWithSlashs.Add(reference + " ");
+
+        for (int i = 0; i < list.Count; i++)
         {
-            //Create a random library to change the place of the word will turn to "-"
-            Random rnd = new Random();
-            int index = rnd.Next(0, lista.Count); //0, max elements in the list (range)
-            string word = lista[index];
-
-            string newWord = "";
-
-            //Do the action to all the letters of the word
-            for (int i = 0; i < word.Length; i++)
-            {
-                newWord += "-";
-            }
-
-            lista[index] = newWord;
-
-            string UltimatePhase = string.Empty;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                UltimatePhase += lista[i].ToString() + " ";
-            }
-
-            Console.WriteLine($"Updated quote: {reference} {UltimatePhase}");
-
-            Console.WriteLine("If you want to continue press the 'Enter' otherwise type 'Exit' ");
-            string response = Console.ReadLine().ToLower();
-
-            if (response == "exit")
-            {
-                //Change the concition to stop the loop and print the last message
-                condition = false;
-            }
+            listWithSlashs.Add((string)list[i] + " ");
             Console.Clear();
         }
 
-        listWithSlash.Add(reference + " ");
+        //Clean the console and print the final last output 
+        Console.WriteLine("You have finished the program. ");
+        word.GetCompletePhase(completePhase, list, condition, reference);
+        Console.Write("The phrase reached was like this: "); 
+        Console.WriteLine();
 
-        for (int i = 0; i < lista.Count; i++)
-        {
-            listWithSlash.Add((string)lista[i] + " ");
-        }
-
-        foreach (var item in listWithSlash)
+        //Print the final "current" list
+        foreach (var item in listWithSlashs)
         {
             Console.Write($"{item}");
         }
+                
 
-        //Clean the console and print the final last output */
-        Console.Clear();
-        Console.WriteLine($"Original quote: {CompletePhrase}");
 
+      
     }
 }
