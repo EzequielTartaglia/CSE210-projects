@@ -45,7 +45,7 @@ public class WrittingAssigment : Assigment
     }
 
     //----------------- Getter & Setter section -----------------
-    //-------------------- Methods ------------------------------
+    //-------------------- Methods -------------------------------
     public string GetWritingInformation()
     {
        return  $"{_title} by {_studentName}"; 
