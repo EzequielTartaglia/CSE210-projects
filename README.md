@@ -38,7 +38,15 @@ This repository contains the starter code for many different projects. They are 
        entry1._message = notificationsList[num]
        •Interaction:  I exaplain before about the behaviors between the classes. Something to add is the menu provide the interaction user-app, The menu will provide interaction between design elements, working with a closer user application. We will use the behavior of the classes to be able to manipulate the information independently, for specific properties or information, or by inherence when, for example, we bring the Journal Entries.
 
+
+
   ♦ Personal Memory Game project with Classes in C# .net:
+  
+  Source: prove\Develop03
+
+  Features: Enter an entry of scripture or quote and save them to a list, for each 'enter' of the user, hide some words of the phase.
+
+  Aditional information:
   
    •Classes: In this assignment we will use at least 3 classes: The "Reference" class that will include the information of the scripture passage, the "Scripture" class that will include the information of the verses (the text) and the "Word" class that will provide the use to hide or show the words. The objects will be created and all will be invoked in the Main class (in program.cs)
 
