@@ -40,22 +40,22 @@ This repository contains the starter code for many different projects. They are 
 
   ♦ Personal Memory Game project with Classes in C# .net:
   
-       •Classes: In this assignment we will use at least 3 classes: The "Reference" class that will include the information of the scripture passage, the "Scripture" class that will include the information of the verses (the text) and the "Word" class that will provide the use to hide or show the words. The objects will be created and all will be invoked in the Main class (in program.cs)
+   •Classes: In this assignment we will use at least 3 classes: The "Reference" class that will include the information of the scripture passage, the "Scripture" class that will include the information of the verses (the text) and the "Word" class that will provide the use to hide or show the words. The objects will be created and all will be invoked in the Main class (in program.cs)
 
-     Reference     →
+  Reference     →
 
-     Scripture       →     Program   
+  Scripture     →     Program   
 
-     Word             →
+  Word          →
 
 
 
-     •Scripture: The Scripture class has the behavior of being created with different constructors depending on the data that the user enters to receive and send parameters (through getters and setters), in addition to functions such as send GetCompleteScripture which we will execute from the Main class. About the attributes of this class will contain the property _phase which will contain the phrase believe, so that it can be manipulated later.
+  •Scripture: The Scripture class has the behavior of being created with different constructors depending on the data that the user enters to receive and send parameters (through getters and setters), in addition to functions such as send GetCompleteScripture which we will execute from the Main class. About the attributes of this class will contain the property _phase which will contain the phrase believe, so that it can be manipulated later.
 
-     •Reference: The Reference class It has the behavior of being created with different constructors depending on the data that the user enters to receive (and that will also influence the output, since it is not the same that we put 2 verses than 1 only, because it will have a - divisor between both) and sending parameters (through getters and setters), as well as functions like sending GetCompleteReference which we will execute from the Main class. On the attributes of this class it will contain the property _book which will contain the requested book, _chapter the chapter, _verse the verse and _verse2 in case the user wants to memorize more than one verse at a time, so that they can be manipulated later.
+  •Reference: The Reference class It has the behavior of being created with different constructors depending on the data that the user enters to receive (and that will also influence the output, since it is not the same that we put 2 verses than 1 only, because it will have a - divisor between both) and sending parameters (through getters and setters), as well as functions like sending GetCompleteReference which we will execute from the Main class. On the attributes of this class it will contain the property _book which will contain the requested book, _chapter the chapter, _verse the verse and _verse2 in case the user wants to memorize more than one verse at a time, so that they can be manipulated later.
 
-     •Word: The Word class has the behavior of being created with different constructors depending on the data the user enters to receive and send parameters (via getters and setters), as well as functions like show/hide. On the attributes of this class it will contain the _word and _hidden property so that if it is active it changes the letters to "-" and otherwise shows the complete word.
+  •Word: The Word class has the behavior of being created with different constructors depending on the data the user enters to receive and send parameters (via getters and setters), as well as functions like show/hide. On the attributes of this class it will contain the _word and _hidden property so that if it is active it changes the letters to "-" and otherwise shows the complete word.
 
-     •Constructors; The classes will be created with differents contructors, one for a "default class" is the class when the user create a new object or the program with some values as a default value ("" or 0 or false), other constructors created with differents uses for some different ocations (we will create one constructor for each parameter put in the object (if the object have 3 parameters, have 4 constructors in total) 
+  •Constructors; The classes will be created with differents contructors, one for a "default class" is the class when the user create a new object or the program with some values as a default value ("" or 0 or false), other constructors created with differents uses for some different ocations (we will create one constructor for each parameter put in the object (if the object have 3 parameters, have 4 constructors in total) 
 
-     •Interaction: The Interaction in the design will be all inside the class Main (about the propieties and methods created in the other classes), using the constructors in the other classes and mix the methods to create the diferent functions inside the program. 
+  •Interaction: The Interaction in the design will be all inside the class Main (about the propieties and methods created in the other classes), using the constructors in the other classes and mix the methods to create the diferent functions inside the program. 
