@@ -25,6 +25,7 @@ public class MathAssigment : Assigment
 
     //When the user only put 1 parameter
     //Create a book's name
+    
     public MathAssigment(string textBookSection, string studentName, string studentSubject) :base(studentName,studentSubject) //base() are the propieties from Assaigment (base/father class)
     {
         

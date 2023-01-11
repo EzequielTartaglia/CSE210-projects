@@ -19,6 +19,7 @@ public class Assigment
 
     //When the user only put 1 parameter
     //Create a student name
+    
     public Assigment(string studentName)
     {
         
