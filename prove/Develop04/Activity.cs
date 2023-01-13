@@ -5,7 +5,7 @@ public class Activity{
 
     //Protect class inside the propieties to not affect the working of the program (only the inherit class)
     protected string _activityName;
-    protected string _activityDuration;
+    protected int _activityDuration;
     protected string _activityDescription;
     protected string _finalActivityMessage;
 
@@ -64,13 +64,13 @@ public class Activity{
         _activityName = activityName;
     }
      
-    public string GetActivityDuration()
+    public int GetActivityDuration()
     {
         //See the value of _activityDuration
         return _activityDuration;
     }
 
-    public void SetActivityDuration(string activityDuration)
+    public void SetActivityDuration(int activityDuration)
     {
         //Put the value of _activityDuration
         _activityDuration = activityDuration;
@@ -115,6 +115,7 @@ public class Activity{
     public string GetFinalActivityMessageDisplay(){
         Console.WriteLine("Well done.");
         Console.WriteLine();
+        Convert.ToString(_activityDuration);
         return $"You have completed another {_activityDuration} seconds of the {_activityName}.";
     }
 

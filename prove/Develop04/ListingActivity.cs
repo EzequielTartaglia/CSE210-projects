@@ -1,7 +1,7 @@
 using System;
 //Public class to can use in "other window"
 
-public class ListingActivity{
+public class ListingActivity : Activity{
     //Protect class inside the propieties to not affect the working of the program (only the inherit class)
     
     //Classes from the base Class (father)
