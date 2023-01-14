@@ -1,15 +1,250 @@
 using System;
 //Public class to can use in "other window"
 
-public class ListingActivity : Activity{
+public class ListingActivity : Activity
+{
     //Protect class inside the propieties to not affect the working of the program (only the inherit class)
-    
+
     //Classes from the base Class (father)
     //protected string _startingMessage;
     //protected string _activityDuration;
     //protected string _descripciónActivity;
     //protected string _finalActivityMessage;
-    protected List<string> _notificationsList;
+    private List<string> _goodThingsList = new List<string>();
+    private Random _random = new Random();
+    //----------- Constructors section (templates)--------------
 
+    //The default ReflectionActivity when we create
+    public ListingActivity(string activityName, string activityDescription, string activityFinalMessage) : base(activityName, activityDescription, activityFinalMessage) //base() are the propieties from Activity (base/father class)
+    {
+        _goodThingsList = new List<string>();
+        _random = new Random();
+    }
+    //------------- Constructors section - end ------------------
+
+    //------------- (Methods - Behaviors) -----------------------
+    //----------------- Getter & Setter section -----------------
+
+    //Return all the elements inside the list
+    public List<string> GetAllListingPrompts()
+    {
+        return _goodThingsList;
+    }
+    //Set the value of the List (if necesary)
+    public void SetAllReflectionPhasesList(List<string> goodThingsPrompts)
+    {
+        _goodThingsList = goodThingsPrompts;
+    }
+
+    //----------------- Getter & Setter section -----------------
+    //-------------------- Methods ------------------------------
+
+    //Method to add one phase to the list
+    public void AddPhaseToGoodThingsList(string goodThingsPrompts)
+    {
+        _goodThingsList.Add(goodThingsPrompts);
+    }
+
+    //Method to select all the element in the list and print one random
+    public string GetRandomChoosenGoodThingsPrompts()
+    {
+        //Random index inside the list
+        int indexOfList = _random.Next(_goodThingsList.Count);
+        return _goodThingsList[indexOfList];
+    }
+
+    //Method to show a spinner with text
+    private void ShowSpinnerWithText(string text, string position = "left")
+    {
+        string activityName = text;
+        int x = Console.CursorLeft;
+        int y = Console.CursorTop;
+
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(20000);
+
+        DateTime currentTime = DateTime.Now;
+
+        if (position == "left")
+        {
+            while (true)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write("| " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("/ " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("— " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("\\ " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("| " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("/ " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("— " + activityName);
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("\\ " + activityName);
+
+                Thread.Sleep(400);
+
+                //If the user press 'Enter'
+                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
+                {
+                    Console.SetCursorPosition(x + activityName.Length, y);
+                    Console.Write("   ");
+                    Console.WriteLine();
+                    break;
+                }
+
+            }
+        }
+        if (position == "right")
+        {
+            while (true)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " |");
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " /");
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " —");
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " \\");
+
+                Thread.Sleep(400);
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " |");
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " /");
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " —");
+
+                Thread.Sleep(400);
+
+                Console.SetCursorPosition(x, y);
+                Console.Write(activityName + " \\");
+
+                Thread.Sleep(400);
+
+                //If the user press 'Enter'
+                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
+                {
+                    Console.SetCursorPosition(x + activityName.Length, y);
+                    Console.Write("   ");
+                    Console.WriteLine();
+                    break;
+                }
+
+            }
+        }
+    }
+
+    //Method to do a cooldown from the max-time to 0 
+    public int GetCooldownListingActivity(int seconds, List<string> listToUsePhrases )
+    {
+        _goodThingsList = listToUsePhrases;
+        int original = seconds;
+        int copy = original;
+        int counter = 0;
+        DateTime newTime = DateTime.Now.AddSeconds(copy);
+        // inicializar variables
+        int remaining = seconds;
+        string message = "You may begin in: ";
+        // mientras queden segundos en el cooldown
+        Console.WriteLine("Let's start...");
+        ShowSpinnerWithText("");
+        Console.Clear();
+        Console.WriteLine();
+        Console.WriteLine("List as many responses you can to the following prompt: ");
+        Console.WriteLine();
+
+        //Print the phrase random
+        Random rand = new Random();
+        int index = rand.Next(0, listToUsePhrases.Count);
+        Console.WriteLine($"---- {listToUsePhrases[index]} ----");
+        Console.WriteLine();
+
+
+        int x = Console.CursorLeft;
+        int y = Console.CursorTop;
+        List<string> listOfUserInput = new List<string>();
+
+        //Countdown 3 to 0 with text in the left
+        for (int i = 3; i > 0; i--)
+        {
+
+            Console.SetCursorPosition(x, y);
+            // \r delete the line and overwrite it
+            Console.Write($"\r{message}" + i);
+            Thread.Sleep(1000);
+        }
+        Console.WriteLine("");
+        Console.WriteLine("");
+
+        while (DateTime.Now <= newTime)
+        {
+            //AGREGAR FUNCION DE QUE PUEDE AGREGAR STRINGS a una nueva lista hasta que se acabe el tiempo
+            Console.Write("");
+            string input = Console.ReadLine();
+            listOfUserInput.Add(input);
+            counter = counter + 1;
+
+
+            //If the time is more than the time for the activity break the loop
+            if (DateTime.Now >= newTime)
+            {
+                break;
+            }
+
+        }
+
+        foreach (var item in listOfUserInput)
+        {
+            Console.WriteLine(item);
+        }
+
+        //Final output
+        Console.WriteLine("");
+        Console.WriteLine($"You listed {counter} items! ");
+
+        return original;
+    }
 
 }

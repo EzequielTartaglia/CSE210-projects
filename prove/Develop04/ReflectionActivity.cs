@@ -178,8 +178,7 @@ public class ReflectionActivity : Activity
     }
 
 
-    //Method to do a cooldown from the max-time to 0 changing between Breathe in and out
-    //The numbers 3 and 6 are choseen from searching about it
+    //Method to do a cooldown from the max-time to 0 
     public int GetCooldownReflectionActivity(int seconds, List<string> listToUsePhrases, List<string> listaToUseQuestions)
     {
         _listOfPhrases = listToUsePhrases;
