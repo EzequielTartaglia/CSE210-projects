@@ -191,7 +191,6 @@ public class ListingActivity : Activity
         Console.WriteLine("Let's start...");
         ShowSpinnerWithText("");
         Console.Clear();
-        Console.WriteLine();
         Console.WriteLine("List as many responses you can to the following prompt: ");
         Console.WriteLine();
 

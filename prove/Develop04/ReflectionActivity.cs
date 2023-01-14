@@ -192,7 +192,6 @@ public class ReflectionActivity : Activity
         Console.WriteLine("Let's start...");
         ShowSpinnerWithText("");
         Console.Clear();
-        Console.WriteLine();
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
 
