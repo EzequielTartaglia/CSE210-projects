@@ -149,7 +149,7 @@ class Program
                     //List to save the phrases into.
                     List<string> listaToUseQuestions = new List<string> { };
                     listaToUseQuestions.AddRange(questionsReflectionList.GetAllReflectionPhases());
-
+                    
                     //Display the started Breathing Activity menu (name & description)
                     Console.WriteLine(reflectionActivity.GetActivityNameDisplay());
                     Console.WriteLine();
