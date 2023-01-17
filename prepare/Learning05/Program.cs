@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine();
+        
         //Create an square and assign the values
         Square square = new("Black", 5); 
         /* 
@@ -35,5 +37,19 @@ class Program
         //Print the value of the area (abstract from the father class (in the declaration and method) and override in the child)
         Console.WriteLine($"The area of a circle with {circle.GetDiameter()} diameter is {circle.GetArea()}");
 
+
+        //Create a list in the SHAPE OBJECT and add all the objects(from other classes) inside it
+        List<Shape> shapeList = new();
+        shapeList.Add(square);
+        shapeList.Add(rectangle);
+        shapeList.Add(circle);
+        Console.WriteLine();
+        foreach (var element in shapeList)
+        {
+            Console.WriteLine($"The color of the element: {element.GetColor()}");
+            Console.WriteLine($"The area of the element: {element.GetArea()}");
+            
+        }
+        Console.WriteLine();
     }
 }
