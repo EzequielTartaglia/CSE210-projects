@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+
         //Function to show the spiner & text
         void ShowSpinnerWithText(string text, string position = "left")
         {
