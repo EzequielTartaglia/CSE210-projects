@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine();
-        
+
         //Create an square and assign the values
         Square square = new("Black", 5); 
         /* 
@@ -50,6 +50,7 @@ class Program
             Console.WriteLine($"The area of the element: {element.GetArea()}");
             
         }
+        
         Console.WriteLine();
     }
 }
