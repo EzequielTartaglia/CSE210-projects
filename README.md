@@ -51,11 +51,8 @@ This repository contains the starter code for many different projects. They are 
    •Classes: In this assignment we will use at least 3 classes: The "Reference" class that will include the information of the scripture passage, the "Scripture" class that will include the information of the verses (the text) and the "Word" class that will provide the use to hide or show the words. The objects will be created and all will be invoked in the Main class (in program.cs)
 
   Reference     →
-
   Scripture     →     Program   
-
   Word          →
-
 
 
   •Scripture: The Scripture class has the behavior of being created with different constructors depending on the data that the user enters to receive and send parameters (through getters and setters), in addition to functions such as send GetCompleteScripture which we will execute from the Main class. About the attributes of this class will contain the property _phase which will contain the phrase believe, so that it can be manipulated later.
@@ -78,12 +75,10 @@ This repository contains the starter code for many different projects. They are 
 
   Aditional information:
   
+
+  Activity  →     ReflectionActivity  → 
+   (base)   →     ListingActivity     →   Program
             →     BreatheActivity     →
-
-  Activity  →     ReflectionActivity  →     Program   
-   (base)
-            →     ListingActivity     → 
-
 
     
   •Base Activity Class - Behaviors:  Activity class has the behavior of being created with different constructors depending on the data that the user enters to receive and send parameters (through getters and setters), in addition to functions such as send  GetActivityNameDisplay(), GetActivityDescriptionDisplay(), GetActivityDurationDisplay(), GetFinalActivityMessageDisplay() to search information about the activity which we will execute from the Main class and that derives as a protected type attribute for its child classes.. About the attributes of this class will contain the property _activityName, _activityDuration, _activityDescription,  _finalActivityMessage which will contain that information, so that it can be manipulated later for the other classes.
