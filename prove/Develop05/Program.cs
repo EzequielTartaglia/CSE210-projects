@@ -8,6 +8,7 @@ class Program
         int userPoints = 0; //user's point (started with 0)
         int option = 0; //user's choose menu options (started with 0)
         //string fileName = "goals.txt";
+        bool completedSimpleGoal = false; //boolean to show the first time the congratulations message
         List<Goal> listOfGoals = new List<Goal>(); //Create a list of objetcts (Necesary put <Goal> the father class to avoid problems)
 
 
@@ -184,7 +185,7 @@ class Program
                                 EternalGoal eternalGoal = new(parts[0], parts[1], int.Parse(parts[2]));
 
                                 //If the title exist in the list, replace that
-                                 if (!tempList.Any(goal => goal.GetGoalName() == eternalGoal.GetGoalName()))
+                                if (!tempList.Any(goal => goal.GetGoalName() == eternalGoal.GetGoalName()))
                                 {
                                     tempList.Add(eternalGoal);
                                 }
@@ -195,7 +196,7 @@ class Program
                                 CheckListGoal checkListGoal = new(parts[0], parts[1], int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]));
                                 tempList.Add(checkListGoal);
                                 //If the title exist in the list, replace that
-                                 if (!tempList.Any(goal => goal.GetGoalName() == checkListGoal.GetGoalName()))
+                                if (!tempList.Any(goal => goal.GetGoalName() == checkListGoal.GetGoalName()))
                                 {
                                     tempList.Add(checkListGoal);
                                 }
@@ -209,26 +210,66 @@ class Program
                 //------------------ "[4] Load Goals"- End --------------- 
 
 
+
+                //------------------ "[5] Record Event" ------------------
                 case 5:
-                    //FALTA TRABAJARLO// (dejo codigo)
-
-                    /*                     
-                    Console.WriteLine("Ingresa el número del elemento que deseas eliminar:");
+                    Console.Write("Which is the goal you accomplish? ");
                     int numberToDelete = int.Parse(Console.ReadLine());
+                    //Rest 1 because the List start with 0 not 1
                     int indexToDelete = numberToDelete - 1;
-                    if(indexToDelete >= 0 && indexToDelete < listOfGoals.Count)
+                    //Search that in the List
+                    if (indexToDelete >= 0 && indexToDelete < listOfGoals.Count)
                     {
-                        userPoints += listOfGoals[indexToDelete]._pointsToComplete;
-                        listOfGoals.RemoveAt(indexToDelete);
-                        Console.WriteLine("Elemento eliminado correctamente. Total de puntos: " + userPoints);
-                    }
-                    else
-                    {
-                        Console.WriteLine("El número ingresado no es válido");
-                    } 
-                    */
+                        //Create a object to manipulate
+                        Goal goalToDelete = listOfGoals[indexToDelete];
 
+                        //If the goal searched is a SimpleGoal
+                        if (goalToDelete is SimpleGoal)
+                        {
+                            
+                            userPoints = ((SimpleGoal)goalToDelete).GetGoalCompleted(userPoints);
+                            if (completedSimpleGoal == false)
+                            {
+                                //The first time record
+                                Console.WriteLine($"Congratulations! You have earned {goalToDelete.GetGoalPoints()} points!");
+                                Console.WriteLine($"You now have {userPoints} points.");
+                                completedSimpleGoal = true;
+                            }
+
+                        }
+                        //If the goal searched is a EternalGoal
+                        if (goalToDelete is EternalGoal)
+                        {
+                            userPoints = ((EternalGoal)goalToDelete).GetGoalCompleted(userPoints);
+                            Console.WriteLine($"Congratulations! You have earned {goalToDelete.GetGoalPoints()} points!");
+
+                        }
+                        //If the goal searched is a CheckListGoal
+                        if (goalToDelete is CheckListGoal)
+                        {
+                            userPoints = ((CheckListGoal)goalToDelete).GetGoalCompleted(userPoints);
+                            if (!goalToDelete.GetGoalInformation().StartsWith("[X]"))
+                            {
+                                //Repeat until the currentGoal is the same like the finalGoal
+                                Console.WriteLine($"Congratulations! You have earned {goalToDelete.GetGoalPoints()} points!");
+                                Console.WriteLine($"You now have {userPoints} points.");
+                            }
+                            else
+                            {
+
+                            }
+
+                        }
+
+                        listOfGoals.RemoveAt(indexToDelete);
+                        listOfGoals.Insert(indexToDelete, goalToDelete);
+
+                        Console.WriteLine();
+                    }
                     break;
+                //------------------ "[5] Record Event" - End -----------
+
+
 
                 //------------------ "[6] Quit"  ------------------------ 
                 case 6:

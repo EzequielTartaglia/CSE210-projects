@@ -13,7 +13,7 @@ public class EternalGoal : Goal // SimpleGoal child class of Goal
     //------------------ Constructors section (templates)--------------
 
     //The default SimpleGoal when we create (all the parameters from Goal)
-    public EternalGoal(string goalName, string goalDescription, int pointsArchieved) : base(goalName,goalDescription,pointsArchieved)
+    public EternalGoal(string goalName, string goalDescription, int pointsArchieved) : base(goalName, goalDescription, pointsArchieved)
     {
         //Default values
         _title = goalName;
@@ -27,24 +27,22 @@ public class EternalGoal : Goal // SimpleGoal child class of Goal
     // to provide specialized accessor behavior.
 
     //Method to set this value to a list
-    public override string GetGoalInformation(){
+    public override string GetGoalInformation()
+    {
         return $"[ ] {_title} ({_description})";
     }
 
     //Add the points to the total
-    public override int GetGoalCompleted(int indexToDelete, int totalPoints){
-        int index = indexToDelete;
-        //The goal is eternal, not finish
-        string restartedGoal = $"[ ] {_title} ({_description})";
-        _listOfGoals.RemoveAt(index);
-        _listOfGoals.Insert(index, restartedGoal);
-
-        //totalpoints is the global variable userPoints
-        totalPoints = totalPoints + _pointsToComplete;
-        return totalPoints;
-    }    
+    public override int GetGoalCompleted(int userPoints)
+    {
+        GetGoalInformation();
+        userPoints = userPoints + _pointsToComplete;
+        return userPoints;
+    }
+    
     //Method to convert the object in a string (to save in an external file)
     public override string GetStringRepresentation()
     {
         return "EternalGoal:" + _title + "," + _description + "," + _pointsToComplete;
-    }}
+    }
+}

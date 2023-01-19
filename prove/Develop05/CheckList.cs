@@ -13,6 +13,7 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
     private int _currentlyCounter;
     private int _verificationCounter;
     private int _bonusGoalCompleted;
+    private bool _checked = false;
 
     //------------------ Constructors section (templates)--------------
 
@@ -39,7 +40,7 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
 
     //When the user only put 2 add parameters
     //Create a CheckList and bonus
-    public CheckListGoal(string goalName, string goalDescription, int pointsArchieved, int verificationCounter, int bonusGoalCompleted,int currentCounter = 0) : base(goalName, goalDescription, pointsArchieved)
+    public CheckListGoal(string goalName, string goalDescription, int pointsArchieved, int verificationCounter, int bonusGoalCompleted, int currentCounter = 0, bool Goalchecked = false) : base(goalName, goalDescription, pointsArchieved)
     {
         //The normal propieties, the check-counter and the bonus when complete the goal
         _title = goalName;
@@ -48,6 +49,7 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
         _verificationCounter = verificationCounter;
         _bonusGoalCompleted = bonusGoalCompleted;
         _currentlyCounter = currentCounter;
+        _checked = Goalchecked;
     }
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
@@ -58,7 +60,7 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
     }
     public void SetVerificationCounter(int verificationCounterToSet)
     {
-        _verificationCounter= verificationCounterToSet;
+        _verificationCounter = verificationCounterToSet;
     }
     public int GetBonusGoalCompleted()
     {
@@ -66,17 +68,17 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
     }
     public void SetBonusGoalCompleted(int bonusGoalCompletedToSet)
     {
-        _bonusGoalCompleted= bonusGoalCompletedToSet;
-        
-    }   
+        _bonusGoalCompleted = bonusGoalCompletedToSet;
+
+    }
     public int GetCurrentlyCounter()
     {
         return _currentlyCounter;
     }
     public void SetCurrentlyCounter(int currenlyCounterToSet)
     {
-        _currentlyCounter= currenlyCounterToSet;
-        
+        _currentlyCounter = currenlyCounterToSet;
+
     }      //----------------- Getter & Setter section -----------------
     //-------------------------- Methods ------------------------------
 
@@ -84,51 +86,64 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
     // to provide specialized accessor behavior.
 
     //Method to set this value to a list
-    public override string GetGoalInformation(){
-        return $"[ ] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}";
+    public override string GetGoalInformation()
+    {
+        if (_checked)
+        {
+            return $"[X] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}";
+        }
+        else
+        {
+            return $"[ ] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}";
+        }
     }
 
     //Method to remplace the other information when the user complete 
     //Add the points to the total
-    public override int GetGoalCompleted(int indexToDelete, int totalPoints){
-        
+    public override int GetGoalCompleted(int userPoints)
+    {
+        //For each "check" +1 to the counter
+        _currentlyCounter = _currentlyCounter + 1;
+        int currentCounter = _currentlyCounter;
+        SetCurrentlyCounter(currentCounter);
+
+        string goalInformation = GetGoalInformation();
+        //$"[ ] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}"
+
+        int index = _listOfGoals.IndexOf(goalInformation);
+        string newGoalInformation;
+
         //When the counter is the same to the final check-counter
-        if (_verificationCounter == _currentlyCounter){
-        int index = indexToDelete;
-        string newGoalInformation = $"[X] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}";
-        _listOfGoals.RemoveAt(index);
-        _listOfGoals.Insert(index, newGoalInformation);
+        if (_currentlyCounter == _verificationCounter)
+        {
+            //Change checked to true
+            _checked = true;
+            newGoalInformation = GetGoalInformation();
 
-        //totalpoints is the global variable userPoints
-        totalPoints = totalPoints + _pointsToComplete;
-        //Add the bonus to complete all the checks
-        totalPoints = totalPoints + _bonusGoalCompleted;
-        return totalPoints;
+            //Add the bonus to the user's points
+            userPoints = userPoints + _bonusGoalCompleted;
+            //userPoints is the global variable userPoints
+            userPoints = userPoints + _pointsToComplete;
         }
-
-        //When the user complete a part of the goal
+        else if (_currentlyCounter > _verificationCounter)
+        {
+            _currentlyCounter = _currentlyCounter - 1;
+        }
         else
         {
-        //Add one counter for each "check"
-        _currentlyCounter =_currentlyCounter + 1;
-        int currentlyCounter = _currentlyCounter;
-        SetCurrentlyCounter(currentlyCounter);
-
-        int index = indexToDelete;
-        string newGoalInformation = $"[ ] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}";
-        _listOfGoals.RemoveAt(index);
-        _listOfGoals.Insert(index, newGoalInformation);
-
-        //totalpoints is the global variable userPoints
-        totalPoints = totalPoints + _pointsToComplete;
-        return totalPoints;
+            newGoalInformation = goalInformation;
+            //$"[ ] {_title} ({_description}) -- Currently completed {GetCurrentlyCounter()}/{_verificationCounter}"
+            //userPoints is the global variable userPoints
+            userPoints = userPoints + _pointsToComplete;
         }
-        
-    }    
+
+        return userPoints;
+
+    }
 
     //Method to convert the object in a string (to save in an external file)
     public override string GetStringRepresentation()
     {
-        return "CheckListGoal:" + _title + "," + _description + "," + _pointsToComplete + "," + _bonusGoalCompleted + "," + _verificationCounter + "," + _currentlyCounter;
+        return "CheckListGoal:" + _title + "," + _description + "," + _pointsToComplete + "," + _verificationCounter + "," + _bonusGoalCompleted + "," + _currentlyCounter;
     }
 }

@@ -100,17 +100,10 @@ public abstract class Goal
     
     //Method to remplace the other information when the user complete 
     //Add the points to the total
-    public virtual int GetGoalCompleted(int indexToDelete, int totalPoints){
-        int index = indexToDelete;
-        string newGoalInformation = $"[X] {_title} ({_description})";
-        _listOfGoals.RemoveAt(index);
-        _listOfGoals.Insert(index, newGoalInformation);
-
-        //totalpoints is the global variable userPoints
-        totalPoints = totalPoints + _pointsToComplete;
-        return totalPoints;
+    public virtual int GetGoalCompleted(int userPoints){
+        return userPoints;
     }    
-
+            
     //Method to convert the object in a string (to save in an external file)
     public virtual string GetStringRepresentation()
     {
