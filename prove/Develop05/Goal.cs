@@ -110,4 +110,11 @@ public abstract class Goal
         totalPoints = totalPoints + _pointsToComplete;
         return totalPoints;
     }    
+
+    //Method to convert the object in a string (to save in an external file)
+    public virtual string GetStringRepresentation()
+    {
+        return "Goal:" + _title + "," + _description + "," + _pointsToComplete + "," + false;
+    }
+
 }
