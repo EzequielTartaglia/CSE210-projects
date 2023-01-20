@@ -213,6 +213,7 @@ class Program
 
                 //------------------ "[5] Record Event" ------------------
                 case 5:
+                    Console.Clear();
                     Console.Write("Which is the goal you accomplish? ");
                     int numberToDelete = int.Parse(Console.ReadLine());
                     //Rest 1 because the List start with 0 not 1
