@@ -23,7 +23,7 @@ public class PJWizard : BasePlayerCharacter // PJWizard child class of BasePlaye
     //----------- Constructors section (templates)--------------
 
     //The default PJWizard when we create
-    public PJWizard(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign) :base(lifePoints,manaPoints,experiencePoints,healPotions,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity,pointsToAssign)
+    public PJWizard(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
         //Default values
         _life = lifePoints;
@@ -43,7 +43,7 @@ public class PJWizard : BasePlayerCharacter // PJWizard child class of BasePlaye
     }
 
     //With 1 parameter
-    public PJWizard(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign,string specialMoveTitle) :base(lifePoints,manaPoints,experiencePoints,healPotions,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity,pointsToAssign)
+    public PJWizard(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
         _life = lifePoints;
         _mana = manaPoints;
@@ -56,15 +56,15 @@ public class PJWizard : BasePlayerCharacter // PJWizard child class of BasePlaye
         _attackSpeed = attackSpeed;
         _celerity = celerity;
         _pointsToAssign = pointsToAssign;
-        
+
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = 0;
     }
 
     //With 2 parameter
-    public PJWizard(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign,string specialMoveTitle,int specialMoveDamage) :base(lifePoints,manaPoints,experiencePoints,healPotions,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity,pointsToAssign)
+    public PJWizard(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle, int specialMoveDamage) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
-         _life = lifePoints;
+        _life = lifePoints;
         _mana = manaPoints;
         _experience = experiencePoints;
         _healpotion = healPotions;
@@ -75,7 +75,7 @@ public class PJWizard : BasePlayerCharacter // PJWizard child class of BasePlaye
         _attackSpeed = attackSpeed;
         _celerity = celerity;
         _pointsToAssign = pointsToAssign;
-        
+
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = specialMoveDamage;
     }
@@ -92,7 +92,7 @@ public class PJWizard : BasePlayerCharacter // PJWizard child class of BasePlaye
         //Put the value of _specialMoveTitle
         _specialMoveTitle = specialMoveTitle;
     }
-       public int GetSpecialMoveDamage()
+    public int GetSpecialMoveDamage()
     {
         //See the value of _specialMoveDamage
         return _specialMoveDamage;
@@ -101,6 +101,6 @@ public class PJWizard : BasePlayerCharacter // PJWizard child class of BasePlaye
     {
         //Put the value of _specialMoveDamage
         _specialMoveDamage = specialMoveDamage;
-    } 
+    }
     //----------------- Getter & Setter section -----------------
 }
