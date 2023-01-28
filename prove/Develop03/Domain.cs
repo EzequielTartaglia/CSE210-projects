@@ -54,11 +54,11 @@ using System;
         */
         //--------------------- Methods (functions) --------------------------
 
-        public string FraseJunta()
+        public string CompletePhase()
         {
-            string frase = _reference + " " + _scripture;
+            string phrase = _reference + " " + _scripture;
 
-            return frase;
+            return phrase;
         }
         
 

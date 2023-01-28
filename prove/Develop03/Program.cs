@@ -24,7 +24,7 @@ class Program
         Scripture scritureStructure = new Scripture(userPhase);
         string scripture = scritureStructure.GetCompleteScripture();
         Domain domain = new Domain(reference, scripture);
-        string completePhase = domain.FraseJunta();
+        string completePhase = domain.CompletePhase();
 
         //Create the object word to use the method 
         Word word = new();

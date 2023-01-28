@@ -113,7 +113,7 @@ public string GetVerseToEnd(){
         return completeReference;
         }
         else{
-        //Print the string (ex. return "Juan 1:1")
+        //Print the string (ex. return "Juan 1:1-5")
         string completeReference = $"{_book} {_chapter}:{_verse}-{_verse2}";
         return completeReference;
 
