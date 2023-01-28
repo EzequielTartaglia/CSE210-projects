@@ -22,64 +22,63 @@ public class PJKnight : BasePlayerCharacter // PJKnight child class of BasePlaye
 
     //----------- Constructors section (templates)--------------
 
-    //The default Goal when we create
-    public PJKnight(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity) :base(lifePoints,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity)
+    //The default PJKnight when we create
+  public PJKnight(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
         //Default values
-        _life = 1;
-        _mana = 0;
-        _experience = 0;
-        _healpotion = 0;
-        _manaPotion = 0;
-        _lvl = 1;
-        _physicalDamage = 0;
-        _magicDamage = 0;
-        _attackSpeed = 0;
-        _celerity = 0;
-        _pointsToAssign = 0;
+        _life = lifePoints;
+        _mana = manaPoints;
+        _experience = experiencePoints;
+        _healpotion = healPotions;
+        _manaPotion = manaPotions;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _pointsToAssign = pointsToAssign;
 
         _specialMoveTitle = "";
         _specialMoveDamage = 0;
     }
 
     //With 1 parameter
-    public PJKnight(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, string specialMoveTitle) :base(lifePoints,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity)
+    public PJKnight(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
-        _life = 1;
-        _mana = 0;
-        _experience = 0;
-        _healpotion = 0;
-        _manaPotion = 0;
-        _lvl = 1;
-        _physicalDamage = 0;
-        _magicDamage = 0;
-        _attackSpeed = 0;
-        _celerity = 0;
-        _pointsToAssign = 0;
-        
+        _life = lifePoints;
+        _mana = manaPoints;
+        _experience = experiencePoints;
+        _healpotion = healPotions;
+        _manaPotion = manaPotions;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _pointsToAssign = pointsToAssign;
+
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = 0;
     }
 
     //With 2 parameter
-    public PJKnight(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, string specialMoveTitle, int specialMoveDamage) :base(lifePoints,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity)
+    public PJKnight(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle, int specialMoveDamage) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
-        _life = 1;
-        _mana = 0;
-        _experience = 0;
-        _healpotion = 0;
-        _manaPotion = 0;
-        _lvl = 1;
-        _physicalDamage = 0;
-        _magicDamage = 0;
-        _attackSpeed = 0;
-        _celerity = 0;
-        _pointsToAssign = 0;
-        
+        _life = lifePoints;
+        _mana = manaPoints;
+        _experience = experiencePoints;
+        _healpotion = healPotions;
+        _manaPotion = manaPotions;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _pointsToAssign = pointsToAssign;
+
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = specialMoveDamage;
-    }
-    
+    }    
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
     //----------------- Getter & Setter section -----------------

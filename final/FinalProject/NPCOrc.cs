@@ -11,4 +11,77 @@ public class NPCOrc : BaseNPCharacter // NPCOrc child class of BaseNPCharacter
         //protected int _magicDamage; //Magical power (spells)
         //protected int _attackSpeed; //Posibility to do "combos" (2 hits in the same turn for example)
         //protected int _celerity; //Determine who start in the battle (speed to do the first attack)
+        private string _specialMoveTitle;
+        private int _specialMoveDamage;
+
+        //----------- Constructors section (templates)--------------
+
+        //The default NPCOrc when we create
+        public NPCOrc(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity) :base(lifePoints,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
+    }
+
+     //With 1 parameters
+     public NPCOrc(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, string specialMoveTitle) :base(lifePoints,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+
+        _specialMoveTitle = specialMoveTitle;
+        _specialMoveDamage = 0;
+    }
+
+    //With 2 parameters
+     public NPCOrc(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, string specialMoveTitle, int specialMoveDamage) :base(lifePoints,manaPoints,level,physicalDamage,magicDamage,attackSpeed,celerity)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+
+        _specialMoveTitle = specialMoveTitle;
+        _specialMoveDamage = specialMoveDamage;
+    }
+    //----------- Constructors section (templates)--------------
+    //------------- (Methods - Behaviors) -----------------------
+    //----------------- Getter & Setter section -----------------
+    public string GetSpecialMoveTitle()
+    {
+        //See the value of _specialMoveTitle
+        return _specialMoveTitle;
+    }
+    public void SetSpecialMoveTitle(string specialMoveTitle)
+    {
+        //Put the value of _specialMoveTitle
+        _specialMoveTitle = specialMoveTitle;
+    }
+       public int GetSpecialMoveDamage()
+    {
+        //See the value of _specialMoveDamage
+        return _specialMoveDamage;
+    }
+    public void SetSpecialMoveDamage(int specialMoveDamage)
+    {
+        //Put the value of _specialMoveDamage
+        _specialMoveDamage = specialMoveDamage;
+    } 
+    //----------------- Getter & Setter section -----------------
 }
