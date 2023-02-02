@@ -4,12 +4,37 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        //  -------------------------------------------------------- Functions to clean the code (repeat in 3 stories) --------------------------------------------------------
+        void GetDungeonIntroduction()
+        {
+            Console.WriteLine("Welcome to the dungeon of the underworld");
+            Console.WriteLine();
+
+            Console.WriteLine("You have entered a place of mystery and danger, where danger lurks around every corner and treasure awaits the bravest of heroes.");
+            Console.WriteLine("This treacherous dungeon is filled with ferocious monsters and ancient relics, and it is said that only the bravest of heroes have returned alive.");
+            Console.WriteLine();
+
+            Console.WriteLine("A long time ago, this dungeon was built by an evil sorcerer who enjoyed seeing how far he could reach the heroes' ability in an environment full of challenges like the one he prepared.");
+            Console.WriteLine("Over the years, this dungeon has become a place of legend, drawing adventurers from far and wide in search of riches and fame.");
+            Console.WriteLine("But beware, many have entered and few have returned, as the dangers of this dungeon are unlike anything you have faced before.");
+            Console.WriteLine();
+
+            Console.WriteLine("Do you have what it takes to survive Underworld's Dungeon? Let the adventure begin!");
+            Console.WriteLine();
+
+        };
+
+        //  -------------------------------------------------------- Functions to clean the code (repeat in 3 stories) --------------------------------------------------------
+
+
         //Variables
         int userExperiencePoints = 0; //user's point (started with 0)
         int userPointsToAssign = 0; //The points the user has to assign to his skills
         int option = 0; //user's choose menu options (started with 0)
         int optionSubMenu = 0; //user's choose menu options (started with 0)
-        //string fileName = "goals.txt";
+        int storyOptions = 0; //user's choose menu options (started with 0)
+        //string fileName = "GameFile.csv";
         List<BasePlayerCharacter> inventary = new List<BasePlayerCharacter>(); //Create a list of objects (Necesary put <BasePlayerCharacter> the father class to avoid problems)
 
         while (option != 3)
@@ -17,9 +42,6 @@ class Program
 
             //Display the menu
             Console.Clear();
-            Console.WriteLine($"You have {userExperiencePoints} experience points.");
-            Console.WriteLine($"You have {userPointsToAssign} points to assign.");
-            Console.WriteLine();
             Console.WriteLine("[1] New game");
             Console.WriteLine("[2] Load game");
             Console.WriteLine("[3] Quit");
@@ -49,6 +71,7 @@ class Program
                         {
                             //--- "[1] Archer" --- 
                             case 1:
+                                Console.Clear();
                                 //Reset the variables
                                 userPointsToAssign = 0;
                                 userExperiencePoints = 0;
@@ -69,8 +92,154 @@ class Program
                                 archer.SetCelerity(10);
                                 archer.SetSpecialMoveTitle("Raining Arrows");
                                 archer.SetSpecialMoveDamage(60);
+
                                 //List of objects
-                                List<BasePlayerCharacter> archerInventary = new List<BasePlayerCharacter>();
+                                Inventory archerInventory = new Inventory();
+                                //Working
+
+                                int currentlyGameArcher = 0;
+                                //Current game start
+
+
+                                //Presentation
+                                GetDungeonIntroduction();
+                                Console.Write("Press enter to continue. ");
+                                Console.ReadLine();
+
+                                while (currentlyGameArcher == 0)
+                                {
+
+                                    while (storyOptions != 7)
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine($"You have {userExperiencePoints} experience points.");
+                                        Console.WriteLine($"You have {userPointsToAssign} points to assign.");
+                                        Console.WriteLine();
+                                        Console.WriteLine("[1] Battle");
+                                        Console.WriteLine("[2] See the stats");
+                                        Console.WriteLine("[3] Inventory");
+                                        Console.WriteLine("[4] Upgrade skills");
+                                        Console.WriteLine("[5] Save game");
+                                        Console.WriteLine("[6] Load game");
+                                        Console.WriteLine("[7] Quit");
+                                        Console.WriteLine();
+                                        Console.Write("Select a choice from the menu: ");
+                                        storyOptions = int.Parse(Console.ReadLine());
+                                        switch (storyOptions)
+                                        {
+
+                                            //------------------ "[5] Save Stats"  ------------------- 
+                                            case 5:
+                                                Console.Clear();
+                                                Console.Write("What is the filename for the game file (ex: GameSavedFile.csv)? ");
+                                                string fileName = Console.ReadLine();
+                                                using (StreamWriter outputFile = new StreamWriter(fileName))
+                                                {
+                                                    // You can add userExperiencePoints in the moment
+                                                    // You can add userPointsToAssign in the moment
+                                                    outputFile.WriteLine(userExperiencePoints);
+                                                    outputFile.WriteLine(userPointsToAssign);
+
+
+                                                    //Save the current stats
+                                                    outputFile.WriteLine(archer.GetlifePoints());
+                                                    outputFile.WriteLine(archer.GetManaPoints());
+                                                    outputFile.WriteLine(archer.GetExperiencePoints());
+                                                    outputFile.WriteLine(archer.GetPointsToAssign());
+                                                    outputFile.WriteLine(archer.GetLevel());
+                                                    outputFile.WriteLine(archer.GetHealPotions());
+                                                    outputFile.WriteLine(archer.GetManaPotions());
+                                                    outputFile.WriteLine(archer.GetPhysicalDamage());
+                                                    outputFile.WriteLine(archer.GetMagicDamage());
+                                                    outputFile.WriteLine(archer.GetAttackSpeed());
+                                                    outputFile.WriteLine(archer.GetCelerity());
+                                                    outputFile.WriteLine(archer.GetSpecialMoveTitle());
+                                                    outputFile.WriteLine(archer.GetSpecialMoveDamage());
+
+                                                    //For each item inside the list, save a line with different formats(override in the class)
+                                                    foreach (var item in archerInventory._items)
+                                                    {
+                                                        //Save all the items inside the list
+                                                        outputFile.WriteLine(item._name +","+ item._quantity);
+
+                                                    }
+
+
+                                                }
+                                                break;
+                                            //------------------ "[5] Save Stats"- End --------------- 
+
+
+                                            //------------------ "[6] Load Stats"- End --------------- 
+                                            case 6:
+                                                Console.Clear();
+                                                Console.Write("What is the filename for the game file? ");
+                                                fileName = Console.ReadLine();
+                                                //Load all the lines in the file
+                                                using (StreamReader inputFile = new StreamReader(fileName))
+                                                {
+
+
+
+                                                    userExperiencePoints = int.Parse(inputFile.ReadLine());
+                                                    userPointsToAssign = int.Parse(inputFile.ReadLine());
+
+                                                    //Charge the stats in the load file
+                                                    archer.SetlifePoints(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetManaPoints(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetExperiencePoints(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetPointsToAssign(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetLevel(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetHealPotions(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetManaPotions(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetPhysicalDamage(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetMagicDamage(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetAttackSpeed(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetCelerity(int.Parse(inputFile.ReadLine()));
+                                                    archer.SetSpecialMoveTitle(inputFile.ReadLine());
+                                                    archer.SetSpecialMoveDamage(int.Parse(inputFile.ReadLine()));
+
+                                                    //For each line in the file, create an instance of the item and add it to the inventory
+                                                    while (!inputFile.EndOfStream)
+                                                    {
+                                                        //Divide the lines in the charged file
+                                                        string line = inputFile.ReadLine();
+                                                        string[] itemData = line.Split(',');
+
+                                                       //Create the item and the propieties
+                                                       Item item = new Item();
+                                                       item.SetName(itemData[0]);
+                                                       item.SetQuantity(int.Parse(itemData[1]));
+
+                                                       //Add the item to the inventory 
+                                                       archerInventory.AddItemToInventory(item);
+                                                    }
+                                                }
+                                                break;
+                                            //------------------ "[6] Load Stats"- End --------------- 
+
+
+                                            //--------------- [7] Quit ---------------------
+                                            case 7:
+                                                currentlyGameArcher = 1;
+                                                break;
+                                            //--------------- [7] Quit ---------------------
+
+
+                                            default:
+                                                Console.WriteLine("Wrong.Choose another option");
+                                                break;
+                                        }
+
+                                        Console.WriteLine(archer.GetAllStats());
+
+                                        //Finish the program (close all the loops)
+                                        optionSubMenu = 4;
+                                        option = 3;
+                                        break;
+                                    }
+                                }
+
 
                                 break;
                             //--- "[1] Archer - End" --- 
@@ -78,6 +247,7 @@ class Program
 
                             //--- "[2] Knight" --- 
                             case 2:
+                                Console.Clear();
                                 //Reset the variables
                                 userPointsToAssign = 0;
                                 userExperiencePoints = 0;
@@ -101,12 +271,17 @@ class Program
                                 //List of objects
                                 List<BasePlayerCharacter> knightInventary = new List<BasePlayerCharacter>();
 
+
+                                Console.WriteLine($"You have {userExperiencePoints} experience points.");
+                                Console.WriteLine($"You have {userPointsToAssign} points to assign.");
+                                Console.WriteLine();
                                 break;
                             //--- "[2] Knight - End" --- 
 
 
                             //--- "[3] Wizard" --- 
                             case 3:
+                                Console.Clear();
                                 //Reset the variables
                                 userPointsToAssign = 0;
                                 userExperiencePoints = 0;
@@ -129,7 +304,11 @@ class Program
                                 wizard.SetSpecialMoveDamage(80);
                                 //List of objects
                                 List<BasePlayerCharacter> wizardInventary = new List<BasePlayerCharacter>();
-                                
+
+
+                                Console.WriteLine($"You have {userExperiencePoints} experience points.");
+                                Console.WriteLine($"You have {userPointsToAssign} points to assign.");
+                                Console.WriteLine();
                                 break;
                             //--- "[3] Wizard - End" --- 
 

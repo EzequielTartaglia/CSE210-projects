@@ -23,7 +23,7 @@ public class PJKnight : BasePlayerCharacter // PJKnight child class of BasePlaye
     //----------- Constructors section (templates)--------------
 
     //The default PJKnight when we create
-  public PJKnight(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
+    public PJKnight(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign) : base(lifePoints, manaPoints, experiencePoints, healPotions, manaPoints, level, physicalDamage, magicDamage, attackSpeed, celerity, pointsToAssign)
     {
         //Default values
         _life = lifePoints;
@@ -78,7 +78,7 @@ public class PJKnight : BasePlayerCharacter // PJKnight child class of BasePlaye
 
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = specialMoveDamage;
-    }    
+    }
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
     //----------------- Getter & Setter section -----------------
@@ -92,7 +92,7 @@ public class PJKnight : BasePlayerCharacter // PJKnight child class of BasePlaye
         //Put the value of _specialMoveTitle
         _specialMoveTitle = specialMoveTitle;
     }
-       public int GetSpecialMoveDamage()
+    public int GetSpecialMoveDamage()
     {
         //See the value of _specialMoveDamage
         return _specialMoveDamage;
@@ -101,7 +101,24 @@ public class PJKnight : BasePlayerCharacter // PJKnight child class of BasePlaye
     {
         //Put the value of _specialMoveDamage
         _specialMoveDamage = specialMoveDamage;
-    } 
+    }
     //----------------- Getter & Setter section -----------------
+    //Method to see the stats
+    public override string GetAllStats()
+    {
+        //Create the variable to return all the stats
+        string stats = "";
+        //Add all the stats
+        stats = stats + $"Life: {GetlifePoints()}" + "\n";
+        stats = stats + $"Mana: {GetManaPoints()}" + "\n";
+        stats = stats + $"Lvl: {GetLevel()}" + "\n";
+        stats = stats + $"Physical Damage: {GetPhysicalDamage()}" + "\n";
+        stats = stats + $"Magical Damage: {GetMagicDamage()}" + "\n";
+        stats = stats + $"Attack Speed: {GetAttackSpeed()}" + "\n";
+        stats = stats + $"Celerity: {GetCelerity()}" + "\n";
+        stats = stats + $"Special move: ['{GetSpecialMoveTitle()}' : {GetSpecialMoveDamage()} damage]" + "\n";
 
+        return stats;
+
+    }
 }

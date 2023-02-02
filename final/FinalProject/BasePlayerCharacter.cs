@@ -345,4 +345,21 @@ public abstract class BasePlayerCharacter
             _inventaryBag.Add(quantity + " " + item);
         }
     }
+
+    //Method to see the stats
+    public virtual string GetAllStats(){
+        //Create the variable to return all the stats
+        string stats = "";
+        //Add all the stats
+        stats = stats + $"Life: {GetlifePoints()}" + "\n";
+        stats = stats + $"Mana: {GetManaPoints()}" + "\n";
+        stats = stats + $"Lvl: {GetLevel()}" + "\n";        
+        stats = stats + $"Physical Damage: {GetPhysicalDamage()}" + "\n";        
+        stats = stats + $"Magical Damage: {GetMagicDamage()}" + "\n";        
+        stats = stats + $"Attack Speed: {GetAttackSpeed()}" + "\n";        
+        stats = stats + $"Celerity: {GetCelerity()}" + "\n";        
+
+        return stats;
+
+    }
 }

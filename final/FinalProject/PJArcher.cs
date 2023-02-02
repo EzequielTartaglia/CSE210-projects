@@ -78,8 +78,8 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
 
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = specialMoveDamage;
-    }   
-    
+    }
+
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
     //----------------- Getter & Setter section -----------------
@@ -93,7 +93,7 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
         //Put the value of _specialMoveTitle
         _specialMoveTitle = specialMoveTitle;
     }
-       public int GetSpecialMoveDamage()
+    public int GetSpecialMoveDamage()
     {
         //See the value of _specialMoveDamage
         return _specialMoveDamage;
@@ -102,7 +102,24 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
     {
         //Put the value of _specialMoveDamage
         _specialMoveDamage = specialMoveDamage;
-    } 
+    }
     //----------------- Getter & Setter section -----------------
+    //Method to see the stats
+    public override string GetAllStats()
+    {
+        //Create the variable to return all the stats
+        string stats = "";
+        //Add all the stats
+        stats = stats + $"Life: {GetlifePoints()}" + "\n";
+        stats = stats + $"Mana: {GetManaPoints()}" + "\n";
+        stats = stats + $"Lvl: {GetLevel()}" + "\n";
+        stats = stats + $"Physical Damage: {GetPhysicalDamage()}" + "\n";
+        stats = stats + $"Magical Damage: {GetMagicDamage()}" + "\n";
+        stats = stats + $"Attack Speed: {GetAttackSpeed()}" + "\n";
+        stats = stats + $"Celerity: {GetCelerity()}" + "\n";
+        stats = stats + $"Special move: ['{GetSpecialMoveTitle()}' : {GetSpecialMoveDamage()} damage]" + "\n";
+
+        return stats;
 
     }
+}
