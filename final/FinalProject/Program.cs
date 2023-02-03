@@ -82,7 +82,7 @@ class Program
                                 archer.SetManaPoints(300);
                                 archer.SetExperiencePoints(0);
                                 archer.SetPointsToAssign(5);
-                                userPointsToAssign = 5;
+                                userPointsToAssign = archer.GetPointsToAssign();
                                 archer.SetLevel(1);
                                 archer.SetHealPotions(2);
                                 archer.SetManaPotions(2);
@@ -112,8 +112,8 @@ class Program
                                     while (storyOptions != 7)
                                     {
                                         Console.Clear();
-                                        Console.WriteLine($"You have {userExperiencePoints} experience points.");
-                                        Console.WriteLine($"You have {userPointsToAssign} points to assign.");
+                                        Console.WriteLine($"You have {archer.GetExperiencePoints()} experience points.");
+                                        Console.WriteLine($"You have {archer.GetPointsToAssign()} points to assign.");
                                         Console.WriteLine();
                                         Console.WriteLine("[1] Battle");
                                         Console.WriteLine("[2] See the stats");
@@ -128,6 +128,13 @@ class Program
                                         switch (storyOptions)
                                         {
 
+                                            //----------------- "[4] Upgrade skills"  ---------------- 
+                                            case 4:
+                                            archer.UpgradeSkills(archer.GetPointsToAssign());
+                                                break;
+                                            //------------- "[4] Upgrade skills - End"  -------------- 
+
+
                                             //------------------ "[5] Save Stats"  ------------------- 
                                             case 5:
                                                 Console.Clear();
@@ -137,8 +144,8 @@ class Program
                                                 {
                                                     // You can add userExperiencePoints in the moment
                                                     // You can add userPointsToAssign in the moment
-                                                    outputFile.WriteLine(userExperiencePoints);
-                                                    outputFile.WriteLine(userPointsToAssign);
+                                                    outputFile.WriteLine(archer.GetExperiencePoints());
+                                                    outputFile.WriteLine(archer.GetPointsToAssign());
 
 
                                                     //Save the current stats
@@ -160,7 +167,7 @@ class Program
                                                     foreach (var item in archerInventory._items)
                                                     {
                                                         //Save all the items inside the list
-                                                        outputFile.WriteLine(item._name +","+ item._quantity);
+                                                        outputFile.WriteLine(item._name + "," + item._quantity);
 
                                                     }
 
@@ -206,13 +213,13 @@ class Program
                                                         string line = inputFile.ReadLine();
                                                         string[] itemData = line.Split(',');
 
-                                                       //Create the item and the propieties
-                                                       Item item = new Item();
-                                                       item.SetName(itemData[0]);
-                                                       item.SetQuantity(int.Parse(itemData[1]));
+                                                        //Create the item and the propieties
+                                                        Item item = new Item();
+                                                        item.SetName(itemData[0]);
+                                                        item.SetQuantity(int.Parse(itemData[1]));
 
-                                                       //Add the item to the inventory 
-                                                       archerInventory.AddItemToInventory(item);
+                                                        //Add the item to the inventory 
+                                                        archerInventory.AddItemToInventory(item);
                                                     }
                                                 }
                                                 break;

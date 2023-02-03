@@ -122,4 +122,86 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
         return stats;
 
     }
+
+    //Method to upgrade the skills
+    public override int UpgradeSkills(int pointsToAssign)
+    {
+        Console.Clear();
+        _pointsToAssign = pointsToAssign;
+
+        //Check if there are points to assign
+        if (_pointsToAssign <= 0)
+        {
+            Console.WriteLine("No points to assign");
+            return _pointsToAssign;
+        }
+
+        Console.WriteLine("Write the number of the skill to upgrade.");
+        Console.WriteLine("[1] Life points");
+        Console.WriteLine("[2] Mana points");
+        Console.WriteLine("[3] Physical damage");
+        Console.WriteLine("[4] Magic damage");
+        Console.WriteLine("[5] Attack speed");
+        Console.WriteLine("[6] Celerity");
+        Console.WriteLine("[7] Special skill");
+        Console.WriteLine("[8] Back menu");
+
+        Console.Write("Select a choice from the menu: ");
+        int skillToUpgrade = int.Parse(Console.ReadLine());
+
+        //Loop until a valid option is selected
+        while (skillToUpgrade < 1 || skillToUpgrade > 8)
+        {
+            Console.WriteLine("Invalid option, try again");
+            Console.Write("Select a choice from the menu: ");
+            skillToUpgrade = int.Parse(Console.ReadLine());
+        }
+
+        //Add one point to the stats and change the propieties of the character
+        //Then subtract 1 point to assign
+        switch (skillToUpgrade)
+        {
+            case 1:
+                SetlifePoints(GetlifePoints() + 50);
+                _pointsToAssign--;
+                break;
+
+            case 2:
+                SetManaPoints(GetManaPoints() + 50);
+                _pointsToAssign--;
+                break;
+
+            case 3:
+                SetPhysicalDamage(GetPhysicalDamage() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 4:
+                SetMagicDamage(GetMagicDamage() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 5:
+                SetAttackSpeed(GetAttackSpeed() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 6:
+                SetCelerity(GetCelerity() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 7:
+                SetSpecialMoveDamage(GetSpecialMoveDamage() + 20);
+                _pointsToAssign--;
+                break;
+
+            case 8:
+                break;
+        }
+        SetPointsToAssign(_pointsToAssign);
+        return _pointsToAssign;
+    }
+
+
 }

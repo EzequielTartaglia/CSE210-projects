@@ -323,7 +323,7 @@ public abstract class BasePlayerCharacter
     {
         //example to use
         //myObject.AddToInventaryBag("LifePotion", 3);
-        
+
         bool itemExists = false;
 
         //Iteration of the list
@@ -347,19 +347,96 @@ public abstract class BasePlayerCharacter
     }
 
     //Method to see the stats
-    public virtual string GetAllStats(){
+    public virtual string GetAllStats()
+    {
         //Create the variable to return all the stats
         string stats = "";
         //Add all the stats
         stats = stats + $"Life: {GetlifePoints()}" + "\n";
         stats = stats + $"Mana: {GetManaPoints()}" + "\n";
-        stats = stats + $"Lvl: {GetLevel()}" + "\n";        
-        stats = stats + $"Physical Damage: {GetPhysicalDamage()}" + "\n";        
-        stats = stats + $"Magical Damage: {GetMagicDamage()}" + "\n";        
-        stats = stats + $"Attack Speed: {GetAttackSpeed()}" + "\n";        
-        stats = stats + $"Celerity: {GetCelerity()}" + "\n";        
+        stats = stats + $"Lvl: {GetLevel()}" + "\n";
+        stats = stats + $"Physical Damage: {GetPhysicalDamage()}" + "\n";
+        stats = stats + $"Magical Damage: {GetMagicDamage()}" + "\n";
+        stats = stats + $"Attack Speed: {GetAttackSpeed()}" + "\n";
+        stats = stats + $"Celerity: {GetCelerity()}" + "\n";
 
         return stats;
 
     }
+
+    //Method to upgrade the skills
+    public virtual int UpgradeSkills(int pointsToAssign)
+    {
+        Console.Clear();
+        _pointsToAssign = pointsToAssign;
+
+        //Check if there are points to assign
+        if (_pointsToAssign <= 0)
+        {
+            Console.WriteLine("No points to assign");
+            return _pointsToAssign;
+        }
+
+        Console.WriteLine("Write the number of the skill to upgrade.");
+        Console.WriteLine("[1] Life points");
+        Console.WriteLine("[2] Mana points");
+        Console.WriteLine("[3] Physical damage");
+        Console.WriteLine("[4] Magic damage");
+        Console.WriteLine("[5] Attack speed");
+        Console.WriteLine("[6] Celerity");
+        //Console.WriteLine("[7] Special skill");
+        Console.WriteLine("[7] Back menu");
+
+        Console.Write("Select a choice from the menu: ");
+        int skillToUpgrade = int.Parse(Console.ReadLine());
+
+        //Loop until a valid option is selected
+        while (skillToUpgrade < 1 || skillToUpgrade > 7)
+        {
+            Console.WriteLine("Invalid option, try again");
+            Console.Write("Select a choice from the menu: ");
+            skillToUpgrade = int.Parse(Console.ReadLine());
+        }
+
+        //Add one point to the stats and change the propieties of the character
+        //Then subtract 1 point to assign
+        switch (skillToUpgrade)
+        {
+            case 1:
+                SetlifePoints(GetlifePoints() + 50);
+                _pointsToAssign--;
+                break;
+
+            case 2:
+                SetManaPoints(GetManaPoints() + 50);
+                _pointsToAssign--;
+                break;
+
+            case 3:
+                SetPhysicalDamage(GetPhysicalDamage() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 4:
+                SetMagicDamage(GetMagicDamage() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 5:
+                SetAttackSpeed(GetAttackSpeed() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 6:
+                SetCelerity(GetCelerity() + 5);
+                _pointsToAssign--;
+                break;
+
+            case 8:
+                break;
+        }
+        SetPointsToAssign(_pointsToAssign);
+        return _pointsToAssign;
+    }
+
 }
