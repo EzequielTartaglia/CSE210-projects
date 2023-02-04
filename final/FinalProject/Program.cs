@@ -197,6 +197,110 @@ class Program
                                         storyOptions = int.Parse(Console.ReadLine());
                                         switch (storyOptions)
                                         {
+                                            //----------------- "[1] Battle"  ---------------- 
+                                            case 1:
+
+                                                //Reset the switcher
+                                                int battleMenuOptions = 0;
+
+                                                //Enemy's custom
+                                                int enemyLevel = 1;
+                                                int enemyType = 1; //Get a default orc enemy
+
+
+                                                while (battleMenuOptions != 4)
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Dungeon of the underworld");
+                                                    Console.WriteLine();
+                                                    Console.WriteLine("[1] Start battle");
+                                                    Console.WriteLine("[2] Change enemy's type");
+                                                    Console.WriteLine("[3] Change enemy's level");
+                                                    Console.WriteLine("[4] Return to main menu");
+                                                    Console.WriteLine();
+                                                    Console.Write("Select a choice from the menu: ");
+                                                    battleMenuOptions = int.Parse(Console.ReadLine());
+                                                    switch (battleMenuOptions)
+                                                    {
+                                                        //--------- Battle Start ------------
+                                                        case 1:
+                                                            break;
+                                                        //--------- Battle Start ------------
+
+
+                                                        //--------- Custom enemy's type ------------
+                                                        case 2:
+                                                            string enemyTypeString = ""; //Variable to help the user to show the enemy's type
+
+                                                            Console.Clear();
+                                                            Console.WriteLine();
+                                                            Console.WriteLine("[1] Orc");
+                                                            Console.WriteLine("[2] Banshe");
+                                                            Console.WriteLine("[3] Skull warrior");
+                                                            Console.WriteLine("[4] Return to main menu");
+                                                            Console.WriteLine();
+                                                            Console.Write("Select the level of the enemy: ");
+                                                            string settingCustomType = Console.ReadLine();
+
+                                                            //Try if the user put a number
+                                                            if (int.TryParse(settingCustomType, out int customType))
+                                                            {
+                                                                if (settingCustomType == "1") { enemyTypeString = "orc"; }
+                                                                else if (settingCustomType == "2") { enemyTypeString = "banshe"; }
+                                                                else if (settingCustomType == "3") { enemyTypeString = "skull warrior"; }
+
+                                                                Console.WriteLine($"The type was changed to {enemyTypeString} sucessfully.");
+                                                                Console.Write("To redirect you to the battle menu again, press enter ");
+
+                                                                enemyType = customType;
+                                                                Console.ReadLine();
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.Write("Incorrect answer, to redirect you to the battle menu again, press enter");
+                                                                Console.ReadLine();
+                                                            }
+                                                            break;
+                                                        //-------- Custom enemy's type - End --------
+
+
+                                                        //--------- Custom enemy's level ------------
+                                                        case 3:
+                                                            Console.Clear();
+                                                            Console.Write("Select the level of the enemy: ");
+                                                            string settingCustomLevel = Console.ReadLine();
+
+                                                            //Try if the user put a number
+                                                            if (int.TryParse(settingCustomLevel, out int customLevel))
+                                                            {
+                                                                Console.WriteLine($"The level was changed to {customLevel} sucessfully.");
+                                                                Console.Write("To redirect you to the battle menu again, press enter ");
+
+                                                                enemyLevel = customLevel;
+                                                                Console.ReadLine();
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.Write("Incorrect answer, to redirect you to the battle menu again, press enter");
+                                                                Console.ReadLine();
+                                                            }
+                                                            break;
+                                                        //-------- Custom enemy's level - End --------
+
+
+                                                        case 4:
+                                                            storyOptions = 0;
+                                                            break;
+
+
+                                                        default:
+                                                            Console.Clear();
+                                                            Console.WriteLine("Wrong. Please choose another option.");
+                                                            break;
+                                                    }
+                                                }
+                                                break;
+                                            //------------ "[1] Battle - End"  --------------- 
 
                                             //----------------- "[2] Stats"  ---------------- 
                                             case 2:

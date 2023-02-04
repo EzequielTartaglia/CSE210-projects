@@ -89,6 +89,8 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
         //Create the variable to return all the stats
         string stats = "";
         //Add all the stats
+        Console.WriteLine("Dungeon of the underworld");
+        Console.WriteLine();
         stats = stats + $"Life: {GetlifePoints()}" + "\n";
         stats = stats + $"Mana: {GetManaPoints()}" + "\n";
         stats = stats + $"Lvl: {GetLevel()}" + "\n";
@@ -114,8 +116,10 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
             Console.WriteLine("No points to assign");
             return _pointsToAssign;
         }
-
+        Console.WriteLine("Dungeon of the underworld");
+        Console.WriteLine();
         Console.WriteLine("Write the number of the skill to upgrade.");
+        Console.WriteLine();
         Console.WriteLine("[1] Life points");
         Console.WriteLine("[2] Mana points");
         Console.WriteLine("[3] Physical damage");
@@ -124,7 +128,7 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
         Console.WriteLine("[6] Celerity");
         Console.WriteLine("[7] Special skill");
         Console.WriteLine("[8] Back menu");
-
+        Console.WriteLine();
         Console.Write("Select a choice from the menu: ");
         int skillToUpgrade = int.Parse(Console.ReadLine());
 

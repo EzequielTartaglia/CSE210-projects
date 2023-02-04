@@ -214,7 +214,7 @@ public abstract class BasePlayerCharacter
         _specialMoveTitle = "";
         _specialMoveDamage = 0;
     }
-        //When the user only put 11 parameters
+    //When the user only put 11 parameters
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle)
     {
         _life = lifePoints;
@@ -231,7 +231,7 @@ public abstract class BasePlayerCharacter
         _specialMoveTitle = specialMoveTitle;
         _specialMoveDamage = 0;
     }
-            //When the user put 12 parameters
+    //When the user put 12 parameters
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle, int specialMoveDamage)
     {
         _life = lifePoints;
@@ -426,6 +426,8 @@ public abstract class BasePlayerCharacter
         //Create the variable to return all the stats
         string stats = "";
         //Add all the stats
+        Console.WriteLine("Dungeon of the underworld");
+        Console.WriteLine();
         stats = stats + $"Life: {GetlifePoints()}" + "\n";
         stats = stats + $"Mana: {GetManaPoints()}" + "\n";
         stats = stats + $"Lvl: {GetLevel()}" + "\n";
@@ -450,8 +452,10 @@ public abstract class BasePlayerCharacter
             Console.WriteLine("No points to assign");
             return _pointsToAssign;
         }
-
+        Console.WriteLine("Dungeon of the underworld");
+        Console.WriteLine();
         Console.WriteLine("Write the number of the skill to upgrade.");
+        Console.WriteLine();
         Console.WriteLine("[1] Life points");
         Console.WriteLine("[2] Mana points");
         Console.WriteLine("[3] Physical damage");
@@ -460,7 +464,7 @@ public abstract class BasePlayerCharacter
         Console.WriteLine("[6] Celerity");
         //Console.WriteLine("[7] Special skill");
         Console.WriteLine("[7] Back menu");
-
+        Console.WriteLine();
         Console.Write("Select a choice from the menu: ");
         int skillToUpgrade = int.Parse(Console.ReadLine());
 
@@ -519,12 +523,12 @@ public abstract class BasePlayerCharacter
         Console.WriteLine();
         Console.Write("What is the filename for the game file? ");
         string fileName = Console.ReadLine();
-        
+
 
         //Test if the file exist in the folder (is not exist, not charge)
         if (File.Exists(fileName))
         {
-            
+
             //Load all the lines in the file
             using (StreamReader inputFile = new StreamReader(fileName))
             {
@@ -581,8 +585,8 @@ public abstract class BasePlayerCharacter
                     }
                 }
             }
-        
-        return fileCharged = true;
+
+            return fileCharged = true;
         }
         else
         {
