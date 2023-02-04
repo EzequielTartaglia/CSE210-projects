@@ -17,8 +17,8 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
     //protected int _celerity; //Determine who start in the battle (speed to do the first attack)
     //List of items the PJ has
     //protected List<string> _inventaryBag = new List<string>();
-    private string _specialMoveTitle;
-    private int _specialMoveDamage;
+    //protected string _specialMoveTitle;
+    //protected int _specialMoveDamage;
 
     //----------- Constructors section (templates)--------------
 
@@ -82,28 +82,7 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
 
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
-    //----------------- Getter & Setter section -----------------
-    public string GetSpecialMoveTitle()
-    {
-        //See the value of _specialMoveTitle
-        return _specialMoveTitle;
-    }
-    public void SetSpecialMoveTitle(string specialMoveTitle)
-    {
-        //Put the value of _specialMoveTitle
-        _specialMoveTitle = specialMoveTitle;
-    }
-    public int GetSpecialMoveDamage()
-    {
-        //See the value of _specialMoveDamage
-        return _specialMoveDamage;
-    }
-    public void SetSpecialMoveDamage(int specialMoveDamage)
-    {
-        //Put the value of _specialMoveDamage
-        _specialMoveDamage = specialMoveDamage;
-    }
-    //----------------- Getter & Setter section -----------------
+
     //Method to see the stats
     public override string GetAllStats()
     {
@@ -202,6 +181,5 @@ public class PJArcher : BasePlayerCharacter // PJArcher child class of BasePlaye
         SetPointsToAssign(_pointsToAssign);
         return _pointsToAssign;
     }
-
 
 }

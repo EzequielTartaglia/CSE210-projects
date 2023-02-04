@@ -33,77 +33,145 @@ class Program
         int userPointsToAssign = 0; //The points the user has to assign to his skills
         int option = 0; //user's choose menu options (started with 0)
         int optionSubMenu = 0; //user's choose menu options (started with 0)
+        int currentlyGameArcher = 0; //user's choose menu story options (started with 0)
         int storyOptions = 0; //user's choose menu options (started with 0)
-        //string fileName = "GameFile.csv";
-        List<BasePlayerCharacter> inventary = new List<BasePlayerCharacter>(); //Create a list of objects (Necesary put <BasePlayerCharacter> the father class to avoid problems)
+        int chargedOptions = 0; //user's load menu options (started with 0)
+
+        //Variables to create the Load (option 2 in the first menu)
+        string PJToLoad = "";
+        bool fileCharged = false;
+
+        //Samples to charge a PJ
+        PJArcher archer = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+        PJKnight knight = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+        PJWizard wizard = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+        //Sample of inventory
+        Inventory archerInventory = new Inventory();
+        Inventory knightInventory = new Inventory();
+        Inventory wizardInventory = new Inventory();
 
         while (option != 3)
         {
+            //If the option was 2 before
+            if (fileCharged)
+            {
+                option = 1;
+            }
 
-            //Display the menu
-            Console.Clear();
-            Console.WriteLine("[1] New game");
-            Console.WriteLine("[2] Load game");
-            Console.WriteLine("[3] Quit");
-            Console.WriteLine();
-            Console.Write("Select a choice from the menu: ");
-            option = int.Parse(Console.ReadLine());
+            //Normal flow
+            else
+            {
+                //Reset the switch
+                option = 0;
+
+                //Display the menu
+                Console.Clear();
+                Console.WriteLine("Dungeon of the underworld");
+                Console.WriteLine();
+                Console.WriteLine("[1] New game");
+                Console.WriteLine("[2] Load game");
+                Console.WriteLine("[3] Quit");
+                Console.WriteLine();
+                Console.Write("Select a choice from the menu: ");
+                option = int.Parse(Console.ReadLine());
+            }
+
 
             switch (option)
             {
+
                 //------------------ "[1] New game"  -------------------- 
                 case 1:
-                    optionSubMenu = 0;
+
+                    if (fileCharged)
+                        optionSubMenu = 0;
                     Console.Clear();
+
                     while (optionSubMenu != 4)
                     {
+                        //If the option was 2 before
+                        if (fileCharged)
+                        {
+                            //Conditionals to manipulate dynamically the menu (loaded game in option 2 - main menu)
+                            if (fileCharged && PJToLoad == "archer")
+                            {
+                                optionSubMenu = 1;
+                            }
+                            else if (fileCharged && PJToLoad == "knight")
+                            {
+                                optionSubMenu = 2;
+                            }
+                            else if (fileCharged && PJToLoad == "wizard")
+                            {
+                                optionSubMenu = 3;
+                            }
+                        }
 
-                        Console.WriteLine("Choose your character");
-                        Console.WriteLine();
-                        Console.WriteLine("[1] Archer");
-                        Console.WriteLine("[2] Knight");
-                        Console.WriteLine("[3] Wizard");
-                        Console.WriteLine("[4] Return to main menu");
-                        Console.WriteLine();
-                        Console.Write("Select a choice from the menu: ");
-                        optionSubMenu = int.Parse(Console.ReadLine());
+                        //Normal flow
+                        else
+                        {
+                            Console.WriteLine("Dungeon of the underworld");
+                            Console.WriteLine();
+                            Console.WriteLine("Choose your character");
+                            Console.WriteLine();
+                            Console.WriteLine("[1] Archer");
+                            Console.WriteLine("[2] Knight");
+                            Console.WriteLine("[3] Wizard");
+                            Console.WriteLine("[4] Return to main menu");
+                            Console.WriteLine();
+                            Console.Write("Select a choice from the menu: ");
+                            optionSubMenu = int.Parse(Console.ReadLine());
+                        }
+
+
                         switch (optionSubMenu)
                         {
                             //--- "[1] Archer" --- 
                             case 1:
+
                                 Console.Clear();
-                                //Reset the variables
-                                userPointsToAssign = 0;
-                                userExperiencePoints = 0;
-                                //Create the Character
-                                PJArcher archer = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
-                                //Define the skills (Use this method to control the stats)
-                                archer.SetlifePoints(200);
-                                archer.SetManaPoints(300);
-                                archer.SetExperiencePoints(0);
-                                archer.SetPointsToAssign(5);
-                                userPointsToAssign = archer.GetPointsToAssign();
-                                archer.SetLevel(1);
-                                archer.SetHealPotions(2);
-                                archer.SetManaPotions(2);
-                                archer.SetPhysicalDamage(30);
-                                archer.SetMagicDamage(20);
-                                archer.SetAttackSpeed(20);
-                                archer.SetCelerity(10);
-                                archer.SetSpecialMoveTitle("Raining Arrows");
-                                archer.SetSpecialMoveDamage(60);
 
-                                //List of objects
-                                Inventory archerInventory = new Inventory();
-                                //Working
+                                if (fileCharged)
+                                {
 
-                                int currentlyGameArcher = 0;
-                                //Current game start
+                                }
 
+                                //Normal flow
+                                else
+                                {
+                                    //Reset the variables
+                                    userPointsToAssign = archer.GetPointsToAssign();
+                                    userExperiencePoints = archer.GetExperiencePoints();
+
+                                    //Create the Character
+                                    //PJArcher archer = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+
+                                    //Define the skills (Use this method to control the stats)
+                                    archer.SetlifePoints(200);
+                                    archer.SetManaPoints(300);
+                                    archer.SetExperiencePoints(0);
+                                    archer.SetPointsToAssign(5);
+                                    userPointsToAssign = archer.GetPointsToAssign();
+                                    archer.SetLevel(1);
+                                    archer.SetHealPotions(2);
+                                    archer.SetManaPotions(2);
+                                    archer.SetPhysicalDamage(30);
+                                    archer.SetMagicDamage(20);
+                                    archer.SetAttackSpeed(20);
+                                    archer.SetCelerity(10);
+                                    archer.SetSpecialMoveTitle("Raining Arrows");
+                                    archer.SetSpecialMoveDamage(60);
+
+                                    //Example to add a item to the inventary
+
+                                    //Item ejemplo  = new("Ejemplo",8);
+                                    //archerInventory.AddItemToInventory(ejemplo);
+
+                                }
 
                                 //Presentation
                                 GetDungeonIntroduction();
-                                Console.Write("Press enter to continue. ");
+                                Console.Write("Press any key to return to continue ");
                                 Console.ReadLine();
 
                                 while (currentlyGameArcher == 0)
@@ -112,12 +180,14 @@ class Program
                                     while (storyOptions != 7)
                                     {
                                         Console.Clear();
+                                        Console.WriteLine("Dungeon of the underworld");
+                                        Console.WriteLine();
                                         Console.WriteLine($"You have {archer.GetExperiencePoints()} experience points.");
                                         Console.WriteLine($"You have {archer.GetPointsToAssign()} points to assign.");
                                         Console.WriteLine();
                                         Console.WriteLine("[1] Battle");
-                                        Console.WriteLine("[2] See the stats");
-                                        Console.WriteLine("[3] Inventory");
+                                        Console.WriteLine("[2] Display stats");
+                                        Console.WriteLine("[3] Display inventory");
                                         Console.WriteLine("[4] Upgrade skills");
                                         Console.WriteLine("[5] Save game");
                                         Console.WriteLine("[6] Load game");
@@ -128,9 +198,33 @@ class Program
                                         switch (storyOptions)
                                         {
 
+                                            //----------------- "[2] Stats"  ---------------- 
+                                            case 2:
+                                                Console.Clear();
+                                                Console.WriteLine(archer.GetAllStats());
+                                                Console.WriteLine();
+                                                Console.Write("Press any key to return to main menu ");
+                                                Console.ReadLine();
+                                                break;
+                                            //------------- "[2] Stats - End"  -------------- 
+
+
+
+                                            //----------------- "[3] Inventory"  ---------------- 
+                                            case 3:
+                                                Console.Clear();
+                                                archerInventory.Display();
+                                                Console.WriteLine();
+                                                Console.Write("Press any key to return to main menu ");
+                                                Console.ReadLine();
+                                                break;
+                                            //------------- "[3] Inventory - End"  -------------- 
+
+
                                             //----------------- "[4] Upgrade skills"  ---------------- 
                                             case 4:
-                                            archer.UpgradeSkills(archer.GetPointsToAssign());
+                                                Console.Clear();
+                                                archer.UpgradeSkills(archer.GetPointsToAssign());
                                                 break;
                                             //------------- "[4] Upgrade skills - End"  -------------- 
 
@@ -180,48 +274,8 @@ class Program
                                             //------------------ "[6] Load Stats"- End --------------- 
                                             case 6:
                                                 Console.Clear();
-                                                Console.Write("What is the filename for the game file? ");
-                                                fileName = Console.ReadLine();
-                                                //Load all the lines in the file
-                                                using (StreamReader inputFile = new StreamReader(fileName))
-                                                {
-
-
-
-                                                    userExperiencePoints = int.Parse(inputFile.ReadLine());
-                                                    userPointsToAssign = int.Parse(inputFile.ReadLine());
-
-                                                    //Charge the stats in the load file
-                                                    archer.SetlifePoints(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetManaPoints(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetExperiencePoints(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetPointsToAssign(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetLevel(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetHealPotions(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetManaPotions(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetPhysicalDamage(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetMagicDamage(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetAttackSpeed(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetCelerity(int.Parse(inputFile.ReadLine()));
-                                                    archer.SetSpecialMoveTitle(inputFile.ReadLine());
-                                                    archer.SetSpecialMoveDamage(int.Parse(inputFile.ReadLine()));
-
-                                                    //For each line in the file, create an instance of the item and add it to the inventory
-                                                    while (!inputFile.EndOfStream)
-                                                    {
-                                                        //Divide the lines in the charged file
-                                                        string line = inputFile.ReadLine();
-                                                        string[] itemData = line.Split(',');
-
-                                                        //Create the item and the propieties
-                                                        Item item = new Item();
-                                                        item.SetName(itemData[0]);
-                                                        item.SetQuantity(int.Parse(itemData[1]));
-
-                                                        //Add the item to the inventory 
-                                                        archerInventory.AddItemToInventory(item);
-                                                    }
-                                                }
+                                                //Charge the information
+                                                archer.ChargeInformation(archer, userExperiencePoints, userPointsToAssign, archerInventory);
                                                 break;
                                             //------------------ "[6] Load Stats"- End --------------- 
 
@@ -238,8 +292,6 @@ class Program
                                                 break;
                                         }
 
-                                        Console.WriteLine(archer.GetAllStats());
-
                                         //Finish the program (close all the loops)
                                         optionSubMenu = 4;
                                         option = 3;
@@ -254,69 +306,105 @@ class Program
 
                             //--- "[2] Knight" --- 
                             case 2:
-                                Console.Clear();
-                                //Reset the variables
-                                userPointsToAssign = 0;
-                                userExperiencePoints = 0;
-                                //Create the Character
-                                PJKnight knight = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
-                                //Define the skills (Use this method to control the stats)
-                                knight.SetlifePoints(400);
-                                knight.SetManaPoints(150);
-                                knight.SetExperiencePoints(0);
-                                knight.SetPointsToAssign(5);
-                                userPointsToAssign = 5;
-                                knight.SetLevel(1);
-                                knight.SetHealPotions(2);
-                                knight.SetManaPotions(2);
-                                knight.SetPhysicalDamage(50);
-                                knight.SetMagicDamage(5);
-                                knight.SetAttackSpeed(15);
-                                knight.SetCelerity(20);
-                                knight.SetSpecialMoveTitle("Piercing thrust");
-                                knight.SetSpecialMoveDamage(60);
-                                //List of objects
-                                List<BasePlayerCharacter> knightInventary = new List<BasePlayerCharacter>();
 
+                                if (fileCharged)
+                                {
 
-                                Console.WriteLine($"You have {userExperiencePoints} experience points.");
-                                Console.WriteLine($"You have {userPointsToAssign} points to assign.");
-                                Console.WriteLine();
+                                }
+
+                                //Normal flow
+                                else
+                                {
+                                    Console.Clear();
+
+                                    //Reset the variables
+                                    userPointsToAssign = knight.GetPointsToAssign();
+                                    userExperiencePoints = knight.GetExperiencePoints();
+
+                                    //Create the Character
+                                    //PJKnight knight = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+
+                                    //Define the skills (Use this method to control the stats)
+                                    knight.SetlifePoints(400);
+                                    knight.SetManaPoints(150);
+                                    knight.SetExperiencePoints(0);
+                                    knight.SetPointsToAssign(5);
+                                    userPointsToAssign = 5;
+                                    knight.SetLevel(1);
+                                    knight.SetHealPotions(2);
+                                    knight.SetManaPotions(2);
+                                    knight.SetPhysicalDamage(50);
+                                    knight.SetMagicDamage(5);
+                                    knight.SetAttackSpeed(15);
+                                    knight.SetCelerity(20);
+                                    knight.SetSpecialMoveTitle("Piercing thrust");
+                                    knight.SetSpecialMoveDamage(60);
+
+                                }
+
+                                //Example to add a item to the inventary
+
+                                //Item ejemplo  = new("Ejemplo",8);
+                                //archerInventory.AddItemToInventory(ejemplo);
+
+                                //Presentation
+                                GetDungeonIntroduction();
+                                Console.Write("Press any key to return to continue ");
+                                Console.ReadLine();
+
                                 break;
                             //--- "[2] Knight - End" --- 
 
 
                             //--- "[3] Wizard" --- 
                             case 3:
-                                Console.Clear();
-                                //Reset the variables
-                                userPointsToAssign = 0;
-                                userExperiencePoints = 0;
-                                //Create the Character
-                                PJWizard wizard = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
-                                //Define the skills (Use this method to control the stats)
-                                wizard.SetlifePoints(200);
-                                wizard.SetManaPoints(400);
-                                wizard.SetExperiencePoints(0);
-                                wizard.SetPointsToAssign(5);
-                                userPointsToAssign = 5;
-                                wizard.SetLevel(1);
-                                wizard.SetHealPotions(2);
-                                wizard.SetManaPotions(2);
-                                wizard.SetPhysicalDamage(10);
-                                wizard.SetMagicDamage(50);
-                                wizard.SetAttackSpeed(15);
-                                wizard.SetCelerity(30);
-                                wizard.SetSpecialMoveTitle("Ruler of the elements");
-                                wizard.SetSpecialMoveDamage(80);
-                                //List of objects
-                                List<BasePlayerCharacter> wizardInventary = new List<BasePlayerCharacter>();
 
+                                if (fileCharged)
+                                {
 
-                                Console.WriteLine($"You have {userExperiencePoints} experience points.");
-                                Console.WriteLine($"You have {userPointsToAssign} points to assign.");
-                                Console.WriteLine();
+                                }
+
+                                //Normal flow
+                                else
+                                {
+                                    Console.Clear();
+
+                                    //Reset the variables
+                                    userPointsToAssign = wizard.GetPointsToAssign();
+                                    userExperiencePoints = wizard.GetExperiencePoints();
+
+                                    //Create the Character
+                                    //PJWizard wizard = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+
+                                    //Define the skills (Use this method to control the stats)
+                                    wizard.SetlifePoints(200);
+                                    wizard.SetManaPoints(400);
+                                    wizard.SetExperiencePoints(0);
+                                    wizard.SetPointsToAssign(5);
+                                    userPointsToAssign = 5;
+                                    wizard.SetLevel(1);
+                                    wizard.SetHealPotions(2);
+                                    wizard.SetManaPotions(2);
+                                    wizard.SetPhysicalDamage(10);
+                                    wizard.SetMagicDamage(50);
+                                    wizard.SetAttackSpeed(15);
+                                    wizard.SetCelerity(30);
+                                    wizard.SetSpecialMoveTitle("Ruler of the elements");
+                                    wizard.SetSpecialMoveDamage(80);
+                                }
+
+                                //Example to add a item to the inventary
+
+                                //Item ejemplo  = new("Ejemplo",8);
+                                //archerInventory.AddItemToInventory(ejemplo);
+
+                                //Presentation
+                                GetDungeonIntroduction();
+                                Console.Write("Press any key to return to continue ");
+                                Console.ReadLine();
+
                                 break;
+
                             //--- "[3] Wizard - End" --- 
 
 
@@ -324,6 +412,7 @@ class Program
                             case 4:
                                 break;
                             //--- "[4] Return to main menu - End" --- 
+
                             default:
                                 Console.Clear();
                                 Console.WriteLine("Wrong. Please choose another option.");
@@ -334,6 +423,99 @@ class Program
                 //-------------- "[1] New game - End"  ------------------ 
 
                 case 2:
+
+                    chargedOptions = 0;
+                    Console.Clear();
+
+                    while (chargedOptions != 4)
+                    {
+
+                        //Charge the information
+                        Console.Clear();
+                        Console.WriteLine("Dungeon of the underworld");
+                        Console.WriteLine();
+                        Console.WriteLine("[1] Archer");
+                        Console.WriteLine("[2] Knight");
+                        Console.WriteLine("[3] Wizard");
+                        Console.WriteLine("[4] Return to main menu");
+                        Console.WriteLine();
+                        Console.Write("Select a choice from the menu: ");
+
+                        int chargedStoryOption = int.Parse(Console.ReadLine());
+
+                        switch (chargedStoryOption)
+                        {
+                            case 1:
+
+                                bool testArcherGameLoad = false;
+                                testArcherGameLoad = archer.ChargeInformation(archer, userExperiencePoints, userPointsToAssign, archerInventory);
+
+                                //If the method ChargeInformation return true change all the variables
+                                if (testArcherGameLoad)
+                                {
+                                    chargedOptions = 4;
+                                    fileCharged = true;
+                                    PJToLoad = "archer";
+                                }
+
+                                break;
+
+                            case 2:
+
+                                bool testKnightGameLoad = false;
+                                testKnightGameLoad = knight.ChargeInformation(knight, userExperiencePoints, userPointsToAssign, knightInventory);
+
+                                //If the method ChargeInformation return true change all the variables
+                                if (testKnightGameLoad)
+                                {
+                                    chargedOptions = 4;
+                                    fileCharged = true;
+                                    PJToLoad = "knight";
+
+                                }
+
+                                break;
+
+                            case 3:
+
+                                bool testWizardGameLoad = false;
+                                testWizardGameLoad = wizard.ChargeInformation(wizard, userExperiencePoints, userPointsToAssign, wizardInventory);
+
+                                //If the method ChargeInformation return true change all the variables
+                                if (testWizardGameLoad)
+                                {
+                                    chargedOptions = 4;
+                                    fileCharged = true;
+                                    PJToLoad = "wizard";
+
+                                }
+                                break;
+
+                            case 4:
+
+                                //The flow turns different depends the fileCharged
+                                if (fileCharged)
+                                {
+                                    fileCharged = true;
+                                    chargedOptions = 4;
+                                }
+
+                                else
+                                {
+                                    fileCharged = false;
+                                    chargedOptions = 4;
+                                }
+
+                                break;
+
+                            default:
+
+                                Console.Clear();
+                                Console.WriteLine("Wrong. Please choose another option.");
+                                break;
+                        }
+                    }
+
                     break;
 
                 //------------------ "[3] Quit"  ------------------------ 

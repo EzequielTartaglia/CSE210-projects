@@ -16,6 +16,9 @@ public abstract class BasePlayerCharacter
     protected int _magicDamage; //Magical power (spells)
     protected int _attackSpeed; //Posibility to do "combos" (2 hits in the same turn for example)
     protected int _celerity; //Determine who start in the battle (speed to do the first attack)
+    protected string _specialMoveTitle;
+    protected int _specialMoveDamage;
+
     //List of items the PJ has
     protected List<string> _inventaryBag = new List<string>();
 
@@ -36,6 +39,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
 
     //When the user only put 1 parameter
@@ -53,6 +58,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 2 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints)
@@ -68,6 +75,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 3 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints)
@@ -83,6 +92,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 4 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions)
@@ -98,6 +109,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 5 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions)
@@ -113,6 +126,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 6 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level)
@@ -128,6 +143,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 7 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage)
@@ -143,6 +160,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 8 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage)
@@ -158,6 +177,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = 0;
         _celerity = 0;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 9 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity)
@@ -173,6 +194,8 @@ public abstract class BasePlayerCharacter
         _attackSpeed = attackSpeed;
         _celerity = celerity;
         _pointsToAssign = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 10 parameter
     public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign)
@@ -188,6 +211,42 @@ public abstract class BasePlayerCharacter
         _attackSpeed = attackSpeed;
         _celerity = celerity;
         _pointsToAssign = pointsToAssign;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
+    }
+        //When the user only put 11 parameters
+    public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _experience = experiencePoints;
+        _healpotion = healPotions;
+        _manaPotion = manaPotions;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _pointsToAssign = pointsToAssign;
+        _specialMoveTitle = specialMoveTitle;
+        _specialMoveDamage = 0;
+    }
+            //When the user put 12 parameters
+    public BasePlayerCharacter(int lifePoints, int manaPoints, int experiencePoints, int healPotions, int manaPotions, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, int pointsToAssign, string specialMoveTitle, int specialMoveDamage)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _experience = experiencePoints;
+        _healpotion = healPotions;
+        _manaPotion = manaPotions;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _pointsToAssign = pointsToAssign;
+        _specialMoveTitle = specialMoveTitle;
+        _specialMoveDamage = specialMoveDamage;
     }
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
@@ -312,12 +371,27 @@ public abstract class BasePlayerCharacter
         //Put the value of _pointsToAssign
         _pointsToAssign = pointsToAssign;
     }
-
-    //----------------- Getter & Setter section -----------------
-    public List<string> GetInventaryBag()
+    public string GetSpecialMoveTitle()
     {
-        return _inventaryBag;
+        //See the value of _specialMoveTitle
+        return _specialMoveTitle;
     }
+    public void SetSpecialMoveTitle(string specialMoveTitle)
+    {
+        //Put the value of _specialMoveTitle
+        _specialMoveTitle = specialMoveTitle;
+    }
+    public int GetSpecialMoveDamage()
+    {
+        //See the value of _specialMoveDamage
+        return _specialMoveDamage;
+    }
+    public void SetSpecialMoveDamage(int specialMoveDamage)
+    {
+        //Put the value of _specialMoveDamage
+        _specialMoveDamage = specialMoveDamage;
+    }
+    //----------------- Getter & Setter section -----------------
     //Method to add one item to the inventary
     public void AddToInventaryBag(string item, int quantity)
     {
@@ -438,5 +512,89 @@ public abstract class BasePlayerCharacter
         SetPointsToAssign(_pointsToAssign);
         return _pointsToAssign;
     }
+
+    //Function to charge the stats (load)
+    public bool ChargeInformation(BasePlayerCharacter character, int userExperiencePoints, int userPointsToAssign, Inventory characterInventory, bool fileCharged = false)
+    {
+        Console.WriteLine();
+        Console.Write("What is the filename for the game file? ");
+        string fileName = Console.ReadLine();
+        
+
+        //Test if the file exist in the folder (is not exist, not charge)
+        if (File.Exists(fileName))
+        {
+            
+            //Load all the lines in the file
+            using (StreamReader inputFile = new StreamReader(fileName))
+            {
+
+
+
+                userExperiencePoints = int.Parse(inputFile.ReadLine());
+                userPointsToAssign = int.Parse(inputFile.ReadLine());
+
+                //Charge the stats in the load file
+                character.SetlifePoints(int.Parse(inputFile.ReadLine()));
+                character.SetManaPoints(int.Parse(inputFile.ReadLine()));
+                character.SetExperiencePoints(int.Parse(inputFile.ReadLine()));
+                character.SetPointsToAssign(int.Parse(inputFile.ReadLine()));
+                character.SetLevel(int.Parse(inputFile.ReadLine()));
+                character.SetHealPotions(int.Parse(inputFile.ReadLine()));
+                character.SetManaPotions(int.Parse(inputFile.ReadLine()));
+                character.SetPhysicalDamage(int.Parse(inputFile.ReadLine()));
+                character.SetMagicDamage(int.Parse(inputFile.ReadLine()));
+                character.SetAttackSpeed(int.Parse(inputFile.ReadLine()));
+                character.SetCelerity(int.Parse(inputFile.ReadLine()));
+                character.SetSpecialMoveTitle(inputFile.ReadLine());
+                character.SetSpecialMoveDamage(int.Parse(inputFile.ReadLine()));
+
+                //For each line in the file, create an instance of the item and add it to the inventory
+                while (!inputFile.EndOfStream)
+                {
+                    //Divide the lines in the charged file
+                    string line = inputFile.ReadLine();
+                    string[] itemData = line.Split(',');
+
+                    //Check if the itemData array has at least two elements
+                    if (itemData.Length >= 2)
+                    {
+                        //Create the item and the propieties
+                        Item item = new Item();
+                        item.SetName(itemData[0]);
+                        int quantity;
+                        if (int.TryParse(itemData[1], out quantity))
+                        {
+                            item.SetQuantity(quantity);
+
+                            //Add the item to the inventory 
+                            characterInventory.AddItemToInventory(item);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid value for item quantity in the file: " + itemData[1]);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid line in the file: " + line);
+                    }
+                }
+            }
+        
+        return fileCharged = true;
+        }
+        else
+        {
+            Console.WriteLine("File not found.");
+            Console.WriteLine();
+            Console.Write("Press any key to return to main menu ");
+            Console.ReadLine();
+            Console.Clear();
+            return fileCharged;
+        }
+
+    }
+
 
 }

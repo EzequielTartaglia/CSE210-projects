@@ -1,7 +1,7 @@
 using System;
 //Public class to can use in "other window"
 
-class Inventory
+public class Inventory
 {
     //Create a list of items inside it
      public List<Item> _items = new List<Item>();
