@@ -11,8 +11,8 @@ public class NPCBanshee : BaseNPCharacter // NPCBanshee child class of BaseNPCha
     //protected int _magicDamage; //Magical power (spells)
     //protected int _attackSpeed; //Posibility to do "combos" (2 hits in the same turn for example)
     //protected int _celerity; //Determine who start in the battle (speed to do the first attack)
-    private string _specialMoveTitle;
-    private int _specialMoveDamage;
+    //private string _specialMoveTitle;
+    //private int _specialMoveDamage;
 
     //----------- Constructors section (templates)--------------
 
@@ -62,27 +62,5 @@ public class NPCBanshee : BaseNPCharacter // NPCBanshee child class of BaseNPCha
     }
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
-    //----------------- Getter & Setter section -----------------
-    public string GetSpecialMoveTitle()
-    {
-        //See the value of _specialMoveTitle
-        return _specialMoveTitle;
-    }
-    public void SetSpecialMoveTitle(string specialMoveTitle)
-    {
-        //Put the value of _specialMoveTitle
-        _specialMoveTitle = specialMoveTitle;
-    }
-    public int GetSpecialMoveDamage()
-    {
-        //See the value of _specialMoveDamage
-        return _specialMoveDamage;
-    }
-    public void SetSpecialMoveDamage(int specialMoveDamage)
-    {
-        //Put the value of _specialMoveDamage
-        _specialMoveDamage = specialMoveDamage;
-    }
-    //----------------- Getter & Setter section -----------------
 
 }

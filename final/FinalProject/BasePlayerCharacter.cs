@@ -5,7 +5,7 @@ using System;
 public abstract class BasePlayerCharacter
 {
     //Protect class inside the propieties to not affect the working of the program (only the inherit class)
-    protected int _life;
+    public int _life;
     protected int _mana;
     protected int _experience;
     protected int _pointsToAssign; //Quantity of number of skills to improve
@@ -371,6 +371,7 @@ public abstract class BasePlayerCharacter
         //Put the value of _pointsToAssign
         _pointsToAssign = pointsToAssign;
     }
+
     public string GetSpecialMoveTitle()
     {
         //See the value of _specialMoveTitle
@@ -381,6 +382,7 @@ public abstract class BasePlayerCharacter
         //Put the value of _specialMoveTitle
         _specialMoveTitle = specialMoveTitle;
     }
+
     public int GetSpecialMoveDamage()
     {
         //See the value of _specialMoveDamage
@@ -391,7 +393,187 @@ public abstract class BasePlayerCharacter
         //Put the value of _specialMoveDamage
         _specialMoveDamage = specialMoveDamage;
     }
+
     //----------------- Getter & Setter section -----------------
+    //------------------------- Methods -------------------------
+
+    //Function to attack (Physical)
+    protected void AttackPhysicalDamage(Object objetive)
+    {
+
+        if (objetive is NPCOrc)
+        {
+            ((NPCOrc)objetive)._life -= _physicalDamage;
+            Console.WriteLine($"Our hero attacks the orc and inflicts {_physicalDamage} points of physical damage on him.");
+
+        }
+        if (objetive is NPCBanshee)
+        {
+            ((NPCBanshee)objetive)._life -= _physicalDamage;
+            Console.WriteLine($"Our hero attacks the banshee and inflicts {_physicalDamage} points of physical damage on him.");
+
+        }
+        if (objetive is NPCSkull)
+        {
+            ((NPCSkull)objetive)._life -= _physicalDamage;
+            Console.WriteLine($"Our hero attacks the skull warrior and inflicts {_physicalDamage} points of physical damage on him.");
+
+        }
+
+    }
+
+    //Function to attack (Magic)
+    protected void AttackMagicDamage(Object objetive)
+    {
+        if (_mana >= 10)
+        {
+            if (objetive is NPCOrc)
+            {
+                ((NPCOrc)objetive)._life -= _magicDamage;
+                Console.WriteLine($"Our hero attacks the orc and inflicts {_magicDamage} points of magic damage on him.");
+                Console.WriteLine();
+                _mana -= 10;
+
+            }
+            if (objetive is NPCBanshee)
+            {
+                ((NPCBanshee)objetive)._life -= _magicDamage;
+                Console.WriteLine($"Our hero attacks the banshee and inflicts {_magicDamage} points of magic damage on him.");
+                Console.WriteLine();
+                _mana -= 10;
+            }
+            if (objetive is NPCSkull)
+            {
+                ((NPCSkull)objetive)._life -= _magicDamage;
+                Console.WriteLine($"Our hero attacks the skull warrior and inflicts {_magicDamage} points of magic damage on him.");
+                Console.WriteLine();
+                _mana -= 10;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Our hero doesn't have enough mana. You lose your turn to attack.");
+            Console.WriteLine();
+
+        }
+    }
+
+    //Function to attack (Special move)
+    protected void AttackSpecialMove(Object objetive)
+    {
+
+        if (_mana >= 15)
+        {
+            if (objetive is NPCOrc)
+            {
+                ((NPCOrc)objetive)._life -= _specialMoveDamage;
+                Console.WriteLine($"Our hero attacks the orc, dealing {_specialMoveDamage} damage with {_specialMoveTitle}, his special ability.");
+                Console.WriteLine();
+                _mana -= 15;
+
+            }
+            if (objetive is NPCBanshee)
+            {
+                ((NPCBanshee)objetive)._life -= _specialMoveDamage;
+                Console.WriteLine($"Our hero attacks the banshee, dealing {_specialMoveDamage} damage with {_specialMoveTitle}, his special ability.");
+                Console.WriteLine();
+                _mana -= 15;
+
+            }
+            if (objetive is NPCSkull)
+            {
+                ((NPCSkull)objetive)._life -= _specialMoveDamage;
+                Console.WriteLine($"Our hero attacks the skull warrior, dealing {_specialMoveDamage} damage with {_specialMoveTitle}, his special ability.");
+                Console.WriteLine();
+                _mana -= 15;
+
+            }
+        }
+        else
+        {
+            Console.WriteLine("Our hero doesn't have enough mana. You lose your turn to attack.");
+            Console.WriteLine();
+
+        }
+    }
+
+    //Function to drink a heal potion
+    public void DrinkHealPotion()
+    {
+        //If you have potions
+        if (_healpotion > 0)
+        {
+            //Progressive depends the level
+            int recoveryPoints = _lvl * 50;
+            _life += recoveryPoints;
+            Console.WriteLine($"Our hero drinks an heal potion and recovery {recoveryPoints}.");
+            Console.WriteLine($"Our hero has {_life} life points now.");
+            Console.WriteLine();
+
+            //Rest one potion
+            _healpotion--;
+        }
+        else
+        {
+            Console.WriteLine("Our hero doesn't have enough heal potions. You lose your turn.");
+            Console.WriteLine();
+        }
+    }
+
+    //Function to drink a mana potion
+    public void DrinkManaPotion()
+    {
+        //If you have potions
+        if (_manaPotion > 0)
+        {
+            //Progressive depends the level
+            int recoveryPoints = _lvl * 50;
+            _mana += recoveryPoints;
+            Console.WriteLine($"Our hero drinks an heal potion and recovery {recoveryPoints}.");
+            Console.WriteLine($"Our hero has {_mana} mana points now.");
+            Console.WriteLine();
+
+            //Rest one potion
+            _manaPotion--;
+        }
+        else
+        {
+            Console.WriteLine("Our hero doesn't have enough mana potions. You lose your turn.");
+            Console.WriteLine();
+        }
+    }
+
+
+    //Function to add experience in the battle
+    public void AddExperience(int enemyLevel)
+    {
+        _experience += 100 * enemyLevel;
+
+        if (_experience >= 1000 * _lvl)
+        {
+            //Lvl up
+            _lvl = _lvl + 1;
+
+            //Modify the stats (upgrade when lvl up)
+            _life = _life + (30 * _lvl);
+            _mana = _mana + (30 * _lvl);
+            _physicalDamage = _physicalDamage + (10 * _lvl);
+            _magicDamage = _magicDamage + (10 * _lvl);
+            _attackSpeed = _attackSpeed + (5 * _lvl);
+            _celerity = _celerity + (5 * _lvl);
+            _specialMoveDamage = _specialMoveDamage + (15 * _lvl);
+
+            //Add points to assign
+            _pointsToAssign = _pointsToAssign + 5;
+
+            //Reset experience
+            _experience = 0;
+
+            Console.WriteLine($"Congratulations I have leveled up, now our hero's level is {_lvl}!");
+
+        }
+    }
+
     //Method to add one item to the inventary
     public void AddToInventaryBag(string item, int quantity)
     {
@@ -599,6 +781,5 @@ public abstract class BasePlayerCharacter
         }
 
     }
-
 
 }

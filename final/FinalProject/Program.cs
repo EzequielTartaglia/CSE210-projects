@@ -218,12 +218,158 @@ class Program
                                                     Console.WriteLine("[3] Change enemy's level");
                                                     Console.WriteLine("[4] Return to main menu");
                                                     Console.WriteLine();
+                                                    Console.WriteLine("Note: If you do not choose a level or an enemy type, the battle will be by default with a level 1 orc.");
+                                                    Console.WriteLine();
                                                     Console.Write("Select a choice from the menu: ");
                                                     battleMenuOptions = int.Parse(Console.ReadLine());
                                                     switch (battleMenuOptions)
                                                     {
                                                         //--------- Battle Start ------------
                                                         case 1:
+                                                            //Create the enemy depends the enemyType
+
+                                                            //Orc
+                                                            if (enemyType == 1)
+                                                            {
+                                                                NPCOrc orc = new(70, 120, enemyLevel, 20, 10, 10, 5, "Skull breaker", 40);
+
+                                                                //Change the stats depends the enemyLevel
+                                                                if (enemyLevel > 1)
+                                                                {
+
+                                                                    //Upgrade 33% life points depends the enemy's level
+                                                                    orc.SetlifePoints(orc.GetlifePoints() + ((orc.GetlifePoints() * enemyLevel) / 6));
+                                                                    //Upgrade 33% mana points depends the enemy's level
+                                                                    orc.SetManaPoints(orc.GetManaPoints() + ((orc.GetManaPoints() * enemyLevel) / 6));
+                                                                    //Upgrade 28% physical damage points depends the enemy's level
+                                                                    orc.SetPhysicalDamage(orc.GetPhysicalDamage() + ((orc.GetPhysicalDamage() * enemyLevel) / 7));
+                                                                    //Upgrade 16% magic damage points depends the enemy's level
+                                                                    orc.SetMagicDamage(orc.GetMagicDamage() + ((orc.GetMagicDamage() * enemyLevel) / 12));
+                                                                    //Upgrade 10% attack speed points depends the enemy's level
+                                                                    orc.SetAttackSpeed(orc.GetAttackSpeed() + ((orc.GetAttackSpeed() * enemyLevel) / 20));
+                                                                    //Upgrade 10% celerity points depends the enemy's level
+                                                                    orc.SetCelerity(orc.GetCelerity() + ((orc.GetCelerity() * enemyLevel) / 20));
+                                                                    //Upgrade 16% special move damage  points depends the enemy's level
+                                                                    orc.SetSpecialMoveDamage(orc.GetSpecialMoveDamage() + ((orc.GetSpecialMoveDamage() * enemyLevel) / 20));
+
+
+                                                                }
+                                                                Console.Clear();
+
+                                                                Console.WriteLine($"Continuing with your journey inside the mazmorra, you find yourself with a orc level {orc.GetLevel()}, who faces you in a challenging battle.");
+                                                                Console.WriteLine();
+                                                                Console.WriteLine($"Our hero has {archer.GetlifePoints()} life's points.");
+                                                                Console.WriteLine($"The Orc has {orc.GetlifePoints()} life's points.");
+                                                                Console.WriteLine();
+
+                                                                //While one of fighters have life
+                                                                while (archer.GetlifePoints() > 0 && orc.GetlifePoints() > 0)
+                                                                {
+                                                                    //Ataques ya estan hechos, fisico magico y especial
+                                                                    //tomar posion vida y mana
+
+                                                                    //Agregar menu de opciones (at fi, at ma, at especial, tomar p, tomar m)
+                                                                    //Agregar items al inventario
+                                                                    
+                                                                   /*  Pikachu.Atacar(Charizard);
+                                                                    Charizard.Atacar(Pikachu);
+
+                                                                    Console.WriteLine(Pikachu.Nombre + " tiene " + Pikachu.Vida + " de vida");
+                                                                    Console.WriteLine(Charizard.Nombre + " tiene " + Charizard.Vida + " de vida");
+                                                                    Console.WriteLine(); */
+                                                                }
+
+                                                                //When the character lose the battle
+                                                                if (archer.GetlifePoints() <= 0)
+                                                                {
+                                                                    Console.WriteLine("The implacable orco beats you this time and your adventure through the mazmorra reaches its end.");
+                                                                    Console.WriteLine();
+                                                                    Console.Write("Game over.");
+                                                                    Console.WriteLine();
+                                                                    Console.Write("You can play again from the last saved point, just remember to load the correct file. Press any key to return to the main menu ");
+                                                                    Console.ReadLine();
+                                                                    battleMenuOptions = 4;
+                                                                    storyOptions = 7;
+                                                                    currentlyGameArcher = 1;
+                                                                    optionSubMenu = 4;
+                                                                }
+
+                                                                //When the character win the battle
+                                                                else
+                                                                {
+
+                                                                    Console.Clear();
+
+                                                                    Console.WriteLine("After a relentless battle, you could win the relentless orc and continue with your crossing");
+
+
+                                                                    int experienceReceived = 100 * enemyLevel;
+
+                                                                    Console.WriteLine();
+                                                                    Console.WriteLine($"You received {experienceReceived} experience points after this battle.");
+
+                                                                    //Add experience to win the battle & lvl up if necessary
+                                                                    archer.AddExperience(enemyLevel);
+
+                                                                    //Return to main menu
+                                                                    Console.WriteLine("Press any key to return to main menu");
+                                                                    Console.ReadLine();
+                                                                }
+                                                            }
+
+
+                                                            //Banshee
+                                                            else if (enemyType == 2)
+                                                            {
+                                                                NPCBanshee banshe = new(50, 120, enemyLevel, 10, 20, 10, 10, "Mournful wail", 40);
+
+                                                                //Change the stats depends the enemyLevel
+                                                                if (enemyLevel > 1)
+                                                                {
+                                                                    //Upgrade 33% life points depends the enemy's level
+                                                                    banshe.SetlifePoints(banshe.GetlifePoints() + ((banshe.GetlifePoints() * enemyLevel) / 6));
+                                                                    //Upgrade 33% mana points depends the enemy's level
+                                                                    banshe.SetManaPoints(banshe.GetManaPoints() + ((banshe.GetManaPoints() * enemyLevel) / 6));
+                                                                    //Upgrade 16% physical damage points depends the enemy's level
+                                                                    banshe.SetPhysicalDamage(banshe.GetPhysicalDamage() + ((banshe.GetPhysicalDamage() * enemyLevel) / 12));
+                                                                    //Upgrade 28% magic damage points depends the enemy's level
+                                                                    banshe.SetMagicDamage(banshe.GetMagicDamage() + ((banshe.GetMagicDamage() * enemyLevel) / 7));
+                                                                    //Upgrade 10% attack speed points depends the enemy's level
+                                                                    banshe.SetAttackSpeed(banshe.GetAttackSpeed() + ((banshe.GetAttackSpeed() * enemyLevel) / 20));
+                                                                    //Upgrade 10% celerity points depends the enemy's level
+                                                                    banshe.SetCelerity(banshe.GetCelerity() + ((banshe.GetCelerity() * enemyLevel) / 20));
+                                                                    //Upgrade 16% special move damage  points depends the enemy's level
+                                                                    banshe.SetSpecialMoveDamage(banshe.GetSpecialMoveDamage() + ((banshe.GetSpecialMoveDamage() * enemyLevel) / 20));
+                                                                }
+
+                                                            }
+
+                                                            //Skull warrior
+                                                            else if (enemyType == 3)
+                                                            {
+                                                                NPCSkull skullWarrior = new(30, 50, enemyLevel, 15, 0, 15, 10, "Gore charge", 40);
+
+                                                                //Change the stats depends the enemyLevel
+                                                                if (enemyLevel > 1)
+                                                                {
+                                                                    //Upgrade 33% life points depends the enemy's level
+                                                                    skullWarrior.SetlifePoints(skullWarrior.GetlifePoints() + ((skullWarrior.GetlifePoints() * enemyLevel) / 6));
+                                                                    //Upgrade 33% mana points depends the enemy's level
+                                                                    skullWarrior.SetManaPoints(skullWarrior.GetManaPoints() + ((skullWarrior.GetManaPoints() * enemyLevel) / 6));
+                                                                    //Upgrade 28% physical damage points depends the enemy's level
+                                                                    skullWarrior.SetPhysicalDamage(skullWarrior.GetPhysicalDamage() + ((skullWarrior.GetPhysicalDamage() * enemyLevel) / 7));
+                                                                    //Upgrade 16% magic damage points depends the enemy's level
+                                                                    skullWarrior.SetMagicDamage(skullWarrior.GetMagicDamage() + ((skullWarrior.GetMagicDamage() * enemyLevel) / 12));
+                                                                    //Upgrade 10% attack speed points depends the enemy's level
+                                                                    skullWarrior.SetAttackSpeed(skullWarrior.GetAttackSpeed() + ((skullWarrior.GetAttackSpeed() * enemyLevel) / 20));
+                                                                    //Upgrade 10% celerity points depends the enemy's level
+                                                                    skullWarrior.SetCelerity(skullWarrior.GetCelerity() + ((skullWarrior.GetCelerity() * enemyLevel) / 20));
+                                                                    //Upgrade 16% special move damage  points depends the enemy's level
+                                                                    skullWarrior.SetSpecialMoveDamage(skullWarrior.GetSpecialMoveDamage() + ((skullWarrior.GetSpecialMoveDamage() * enemyLevel) / 20));
+                                                                }
+
+                                                            }
+
                                                             break;
                                                         //--------- Battle Start ------------
 

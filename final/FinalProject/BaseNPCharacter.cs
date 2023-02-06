@@ -4,14 +4,16 @@ using System;
 // this class must also be declared as an abstract class (because have an abstract method inside).
 public abstract class BaseNPCharacter
 {
-   //Protect class inside the propieties to not affect the working of the program (only the inherit class)
-    protected int _life;
+    //Protect class inside the propieties to not affect the working of the program (only the inherit class)
+    public int _life;
     protected int _mana;
     protected int _lvl; //Determine the skills
     protected int _physicalDamage; //Determine strengh of hit
     protected int _magicDamage; //Magical power (spells)
     protected int _attackSpeed; //Posibility to do "combos" (2 hits in the same turn for example)
     protected int _celerity; //Determine who start in the battle (speed to do the first attack)
+    protected string _specialMoveTitle;
+    protected int _specialMoveDamage;
 
     //----------- Constructors section (templates)--------------
 
@@ -26,6 +28,8 @@ public abstract class BaseNPCharacter
         _magicDamage = 0;
         _attackSpeed = 0;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
     //When the user only put 1 parameter
     public BaseNPCharacter(int lifePoints)
@@ -38,8 +42,10 @@ public abstract class BaseNPCharacter
         _magicDamage = 0;
         _attackSpeed = 0;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
-    //When the user only put 2 parameter
+    //When the user only put 2 parameters
     public BaseNPCharacter(int lifePoints, int manaPoints)
     {
         _life = lifePoints;
@@ -49,9 +55,11 @@ public abstract class BaseNPCharacter
         _magicDamage = 0;
         _attackSpeed = 0;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
-    //When the user only put 3 parameter
-    public BaseNPCharacter(int lifePoints, int manaPoints,int level)
+    //When the user only put 3 parameters
+    public BaseNPCharacter(int lifePoints, int manaPoints, int level)
     {
         _life = lifePoints;
         _mana = manaPoints;
@@ -60,8 +68,10 @@ public abstract class BaseNPCharacter
         _magicDamage = 0;
         _attackSpeed = 0;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
-    //When the user only put 4 parameter
+    //When the user only put 4 parameters
     public BaseNPCharacter(int lifePoints, int manaPoints, int level, int physicalDamage)
     {
         _life = lifePoints;
@@ -71,8 +81,10 @@ public abstract class BaseNPCharacter
         _magicDamage = 0;
         _attackSpeed = 0;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
-    //When the user only put 5 parameter
+    //When the user only put 5 parameters
     public BaseNPCharacter(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage)
     {
         _life = lifePoints;
@@ -82,8 +94,10 @@ public abstract class BaseNPCharacter
         _magicDamage = magicDamage;
         _attackSpeed = 0;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
-    //When the user only put 6 parameter
+    //When the user only put 6 parameters
     public BaseNPCharacter(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed)
     {
         _life = lifePoints;
@@ -93,8 +107,10 @@ public abstract class BaseNPCharacter
         _magicDamage = magicDamage;
         _attackSpeed = attackSpeed;
         _celerity = 0;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
-    //When the user only put 7 parameter
+    //When the user only put 7 parameters
     public BaseNPCharacter(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity)
     {
         _life = lifePoints;
@@ -104,7 +120,37 @@ public abstract class BaseNPCharacter
         _magicDamage = magicDamage;
         _attackSpeed = attackSpeed;
         _celerity = celerity;
+        _specialMoveTitle = "";
+        _specialMoveDamage = 0;
     }
+    //When the user only put 8 parameters
+    public BaseNPCharacter(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, string specialMoveTitle)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _specialMoveTitle = specialMoveTitle;
+        _specialMoveDamage = 0;
+    }
+    //When the user put 9 parameters
+    public BaseNPCharacter(int lifePoints, int manaPoints, int level, int physicalDamage, int magicDamage, int attackSpeed, int celerity, string specialMoveTitle, int specialMoveDamage)
+    {
+        _life = lifePoints;
+        _mana = manaPoints;
+        _lvl = level;
+        _physicalDamage = physicalDamage;
+        _magicDamage = magicDamage;
+        _attackSpeed = attackSpeed;
+        _celerity = celerity;
+        _specialMoveTitle = specialMoveTitle;
+        _specialMoveDamage = specialMoveDamage;
+    }
+
+
     //----------- Constructors section (templates)--------------
     //------------- (Methods - Behaviors) -----------------------
     //----------------- Getter & Setter section -----------------
@@ -183,5 +229,117 @@ public abstract class BaseNPCharacter
         //Put the value of _celerity
         _celerity = celerity;
     }
+    public string GetSpecialMoveTitle()
+    {
+        //See the value of _specialMoveTitle
+        return _specialMoveTitle;
+    }
+    public void SetSpecialMoveTitle(string specialMoveTitle)
+    {
+        //Put the value of _specialMoveTitle
+        _specialMoveTitle = specialMoveTitle;
+    }
+    public int GetSpecialMoveDamage()
+    {
+        //See the value of _specialMoveDamage
+        return _specialMoveDamage;
+    }
+    public void SetSpecialMoveDamage(int specialMoveDamage)
+    {
+        //Put the value of _specialMoveDamage
+        _specialMoveDamage = specialMoveDamage;
+    }
     //----------------- Getter & Setter section -----------------
+    //------------------------- Methods -------------------------
+
+    //Function to attack (Physical)
+    protected void AttackPhysicalDamage(Object objetive)
+    {
+
+        if (objetive is PJArcher)
+        {
+            ((PJArcher)objetive)._life -= _physicalDamage;
+        }
+        if (objetive is PJKnight)
+        {
+            ((PJKnight)objetive)._life -= _physicalDamage;
+        }
+        if (objetive is PJWizard)
+        {
+            ((PJWizard)objetive)._life -= _physicalDamage;
+        }
+
+        Console.WriteLine($"Our enemy attacks inflicts {_physicalDamage} points of physical damage on our hero.");
+        Console.WriteLine();
+
+
+    }
+
+    //Function to attack (Magic)
+    protected void AttackMagicDamage(Object objetive)
+    {
+        if (_mana >= 10)
+        {
+            if (objetive is PJArcher)
+            {
+                ((PJArcher)objetive)._life -= _magicDamage;
+                _mana -= 10;
+            }
+            if (objetive is PJKnight)
+            {
+                ((PJKnight)objetive)._life -= _magicDamage;
+                _mana -= 10;
+            }
+            if (objetive is PJWizard)
+            {
+                ((PJWizard)objetive)._life -= _magicDamage;
+                _mana -= 10;
+            }
+
+            Console.WriteLine($"Our enemy attacks inflicts {_magicDamage} points of magic damage on our hero.");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Our enemy doesn't have enough mana. It lose it turn to attack.");
+            Console.WriteLine();
+
+        }
+    }
+
+    //Function to attack (Special move)
+    protected void AttackSpecialMove(Object objetive)
+    {
+        if (_mana >= 15)
+        {
+            if (objetive is PJArcher)
+            {
+                ((PJArcher)objetive)._life -= _specialMoveDamage;
+                _mana -= 15;
+            }
+            if (objetive is PJKnight)
+            {
+                ((PJKnight)objetive)._life -= _specialMoveDamage;
+                _mana -= 15;
+            }
+            if (objetive is PJWizard)
+            {
+                ((PJWizard)objetive)._life -= _specialMoveDamage;
+                _mana -= 15;
+            }
+
+            Console.WriteLine($"Our enemy attacks inflicts {_magicDamage} points of magic damage on our hero.");
+            Console.WriteLine();
+
+        }
+        else
+        {
+            Console.WriteLine("Our enemy doesn't have enough mana. It lose it turn to attack.");
+            Console.WriteLine();
+
+        }
+    }
+
+
+
 }
