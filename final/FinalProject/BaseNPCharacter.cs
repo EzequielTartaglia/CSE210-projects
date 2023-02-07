@@ -8,12 +8,12 @@ public abstract class BaseNPCharacter
     public int _life;
     protected int _mana;
     protected int _lvl; //Determine the skills
-    protected int _physicalDamage; //Determine strengh of hit
-    protected int _magicDamage; //Magical power (spells)
-    protected int _attackSpeed; //Posibility to do "combos" (2 hits in the same turn for example)
+    public int _physicalDamage; //Determine strengh of hit
+    public int _magicDamage; //Magical power (spells)
+    public int _attackSpeed; //Posibility to do "combos" (2 hits in the same turn for example)
     protected int _celerity; //Determine who start in the battle (speed to do the first attack)
     protected string _specialMoveTitle;
-    protected int _specialMoveDamage;
+    public int _specialMoveDamage;
 
     //----------- Constructors section (templates)--------------
 
@@ -253,7 +253,7 @@ public abstract class BaseNPCharacter
     //------------------------- Methods -------------------------
 
     //Function to attack (Physical)
-    protected void AttackPhysicalDamage(Object objetive)
+    public void AttackPhysicalDamageNPC(Object objetive)
     {
 
         if (objetive is PJArcher)
@@ -276,7 +276,7 @@ public abstract class BaseNPCharacter
     }
 
     //Function to attack (Magic)
-    protected void AttackMagicDamage(Object objetive)
+    public void AttackMagicDamageNPC(Object objetive)
     {
         if (_mana >= 10)
         {
@@ -308,7 +308,7 @@ public abstract class BaseNPCharacter
     }
 
     //Function to attack (Special move)
-    protected void AttackSpecialMove(Object objetive)
+    public void AttackSpecialMoveNPC(Object objetive)
     {
         if (_mana >= 15)
         {

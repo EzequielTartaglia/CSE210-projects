@@ -50,6 +50,9 @@ public class Item
         //Put the value of _quantity
         _quantity = quantity;
     }
+    public string DisplayItem( Item item){
+        return $"{_name} - {_quantity}";
+    }
     
     //----------------- Getter & Setter section -----------------
 }

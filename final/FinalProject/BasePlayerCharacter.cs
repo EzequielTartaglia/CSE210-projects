@@ -398,32 +398,35 @@ public abstract class BasePlayerCharacter
     //------------------------- Methods -------------------------
 
     //Function to attack (Physical)
-    protected void AttackPhysicalDamage(Object objetive)
+    public void AttackPhysicalDamagePJ(Object objetive)
     {
 
         if (objetive is NPCOrc)
         {
             ((NPCOrc)objetive)._life -= _physicalDamage;
             Console.WriteLine($"Our hero attacks the orc and inflicts {_physicalDamage} points of physical damage on him.");
+            Console.WriteLine();
 
         }
         if (objetive is NPCBanshee)
         {
             ((NPCBanshee)objetive)._life -= _physicalDamage;
             Console.WriteLine($"Our hero attacks the banshee and inflicts {_physicalDamage} points of physical damage on him.");
+            Console.WriteLine();
 
         }
         if (objetive is NPCSkull)
         {
             ((NPCSkull)objetive)._life -= _physicalDamage;
             Console.WriteLine($"Our hero attacks the skull warrior and inflicts {_physicalDamage} points of physical damage on him.");
+            Console.WriteLine();
 
         }
 
     }
 
     //Function to attack (Magic)
-    protected void AttackMagicDamage(Object objetive)
+    public void AttackMagicDamagePJ(Object objetive)
     {
         if (_mana >= 10)
         {
@@ -459,7 +462,7 @@ public abstract class BasePlayerCharacter
     }
 
     //Function to attack (Special move)
-    protected void AttackSpecialMove(Object objetive)
+    public void AttackSpecialMovePJ(Object objetive)
     {
 
         if (_mana >= 15)
