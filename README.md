@@ -89,5 +89,24 @@ This repository contains the starter code for many different projects. They are 
 
 •Interaction: The Interaction in the design will be all inside the class Main (about the propieties and methods created in the other classes), using the constructors in the other classes and mix the methods to create the diferent functions inside the program. Also, all the classes will be related with a menu.
 
- 
+ ♦ Personal Goal's agenda in C# .net (to do list):
+  
+  Source: prove\Develop05
+  
+  Features: Menu with some activities to help people to control their goals and win points to complete them
+  
+  Aditional information:
+  
+
+  Goal  →     SimpleGoal/Checklist/EternalGoal  → Program
+  
+  (Could use a dataset named goals.csv)
+
+     •Base Activity Class - Behaviors:  Goal class has the behavior of being created with different constructors depending on the data that the user enters to receive and send parameters (through getters and setters), in addition to functions such as send  GetGoalInformation(), GetGoalCompleted(int userPoints) that is a virtual method, so could change depends the subclasses necesities (change the way to see the goal when the user record it), GetStringRepresentation() virtual too. That search information about the goal which we will execute from the Main class and that derives as a protected type attribute for its child classes.. About the attributes of this class will contain the property _title; _description; _pointsToComplete; and also a list to save all the goals named List<string> _listOfGoals(); which will contain that information, so that it can be manipulated later for the other classes.
+
+•Derived Classes - Behaviors & Attributes: To continue with what was stated in the table and not be repetitive, I will talk about the behavior of these classes and their attributes. As for the "Simple Goal" it is an goal that complete when the user record it the first time; On the other hand, we have the "Eternal Goal", this goal has the capacity to never end no matter which records put in it (but add points for each check). Lastly, the "CheckList" that goal  has a total elements counter, you could decide how many times the user needs to do to finish the task. 
+
+•Constructors; The classes will be created with differents contructors, one for a "default class" is the class when the user create a new object or the program with some values as a default value ("" or 0 or false), other constructors created with differents uses for some different ocations (we will create one constructor for each parameter put in the object (if the object have 3 parameters, have 4 constructors in total). In order to be more clear, the base class appear in the default constructors of the derived classes, and in each constructor with another parameters (all of the base class also the single parameters).
+
+•Interaction: The Interaction in the design will be all inside the class Main (about the propieties and methods created in the other classes), using the constructors in the other classes and mix the methods to create the diferent functions inside the program. Also, all the classes will be related with a menu. For other part, the Goal class is an abstract class so could create methods/functions could be modify with the subclasses.
 
