@@ -10,11 +10,11 @@ This repository contains the starter code for many different projects. They are 
 * `final` - Starter projects for final project.
 
 
-# Projects:
- 
+# Projects (To run the code need to download first)
+
 ## Personal journal project with Classes in C# .net:
-   - Source: prove\Develop02
-   - Features: With date counter, enter entries and save them to an external csv file, load from that external file, and exit the program.
+   ### Source: https://github.com/EzequielTartaglia/CSE210-projects/tree/main/prove/Develop02
+   ### Features: With date counter, enter entries and save them to an external csv file, load from that external file, and exit the program.
        
        Aditional information:
        
@@ -42,9 +42,9 @@ This repository contains the starter code for many different projects. They are 
 
 ## Personal Memory Game project with Classes in C# .net:
   
-  Source: prove\Develop03
+  ### Source: https://github.com/EzequielTartaglia/CSE210-projects/tree/main/prove/Develop03
 
-  Features: Enter an entry of scripture or quote and save them to a list, for each 'enter' of the user, hide some words of the phase.
+  ### Features: Enter an entry of scripture or quote and save them to a list, for each 'enter' of the user, hide some words of the phase.
 
   Aditional information:
   
@@ -71,9 +71,9 @@ This repository contains the starter code for many different projects. They are 
   
 ## Mindful project with Classes in C# .net:
   
-  Source: prove\Develop04
+  ### Source: https://github.com/EzequielTartaglia/CSE210-projects/tree/main/prove/Develop04
 
-  Features: Menu with some activities to help people to stress out
+  ### Features: Menu with some activities to help people to stress out
 
   Aditional information:
   
@@ -91,9 +91,9 @@ This repository contains the starter code for many different projects. They are 
 
 ## Personal Goal's agenda in C# .net (to do list):
   
-  Source: prove\Develop05
+  ### Source: https://github.com/EzequielTartaglia/CSE210-projects/tree/main/prove/Develop05
   
-  Features: Menu with some activities to help people to control their goals and win points to complete them
+  ### Features: Menu with some activities to help people to control their goals and win points to complete them
   
   Aditional information:
   
