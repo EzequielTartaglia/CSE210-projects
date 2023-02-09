@@ -10,9 +10,9 @@ This repository contains the starter code for many different projects. They are 
 * `final` - Starter projects for final project.
 
 
-•Projects:
+#Projects:
  
-♦ Personal journal project with Classes in C# .net:
+## Personal journal project with Classes in C# .net:
    - Source: prove\Develop02
    - Features: With date counter, enter entries and save them to an external csv file, load from that external file, and exit the program.
        
@@ -40,7 +40,7 @@ This repository contains the starter code for many different projects. They are 
 
 
 
-  ♦ Personal Memory Game project with Classes in C# .net:
+## Personal Memory Game project with Classes in C# .net:
   
   Source: prove\Develop03
 
@@ -69,7 +69,7 @@ This repository contains the starter code for many different projects. They are 
   
   
   
-  ♦ Mindful project with Classes in C# .net:
+## Mindful project with Classes in C# .net:
   
   Source: prove\Develop04
 
@@ -89,7 +89,7 @@ This repository contains the starter code for many different projects. They are 
 
 •Interaction: The Interaction in the design will be all inside the class Main (about the propieties and methods created in the other classes), using the constructors in the other classes and mix the methods to create the diferent functions inside the program. Also, all the classes will be related with a menu.
 
- ♦ Personal Goal's agenda in C# .net (to do list):
+## Personal Goal's agenda in C# .net (to do list):
   
   Source: prove\Develop05
   
