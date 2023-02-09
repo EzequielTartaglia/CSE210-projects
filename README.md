@@ -38,8 +38,11 @@ This repository contains the starter code for many different projects. They are 
 
    •Prompt Generation: The prompt generation in this program will be created with the Random function provices from c#, saving all the different phases in a List and then, put the numbers int the int num =random.Next(0,x) using x as the lenght of the list, provided by Random. then in the new Entry created, we will be assign the variable num to the entry_message like this:
 
-       entry1._message = notificationsList[num]
-     •Interaction:  I exaplain before about the behaviors between the classes. Something to add is the menu provide the interaction user-app, The menu will provide interaction between design elements, working with a closer user application. We will use the behavior of the classes to be able to manipulate the information independently, for specific properties or information, or by inherence when, for example, we bring the Journal Entries.
+  ```c#
+  entry1._message = notificationsList[num]
+   ```
+  
+  •Interaction:  I exaplain before about the behaviors between the classes. Something to add is the menu provide the interaction user-app, The menu will provide interaction between design elements, working with a closer user application. We will use the behavior of the classes to be able to manipulate the information independently, for specific properties or information, or by inherence when, for example, we bring the Journal Entries.
 
 
 
