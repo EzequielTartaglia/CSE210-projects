@@ -10,7 +10,7 @@ This repository contains the starter code for many different projects. They are 
 * `final` - Starter projects for final project.
 
 
-#Projects:
+# Projects:
  
 ## Personal journal project with Classes in C# .net:
    - Source: prove\Develop02
