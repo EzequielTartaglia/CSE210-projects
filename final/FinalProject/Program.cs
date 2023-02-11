@@ -1525,6 +1525,9 @@ class Program
                                                 Console.Clear();
                                                 archerInventory.Display();
                                                 Console.WriteLine();
+                                                Console.WriteLine($"Heal potions: {archer.GetHealPotions()}");
+                                                Console.WriteLine($"Mana potions: {archer.GetManaPotions()}");
+                                                Console.WriteLine();
                                                 Console.Write("Press any key to return to main menu ");
                                                 Console.ReadLine();
                                                 break;
@@ -3009,6 +3012,9 @@ class Program
                                                 Console.Clear();
                                                 knightInventory.Display();
                                                 Console.WriteLine();
+                                                Console.WriteLine($"Heal potions: {knight.GetHealPotions()}");
+                                                Console.WriteLine($"Mana potions: {knight.GetManaPotions()}");
+                                                Console.WriteLine();
                                                 Console.Write("Press any key to return to main menu ");
                                                 Console.ReadLine();
                                                 break;
@@ -4490,6 +4496,9 @@ class Program
                                             case 3:
                                                 Console.Clear();
                                                 wizardInventory.Display();
+                                                Console.WriteLine();
+                                                Console.WriteLine($"Heal potions: {wizard.GetHealPotions()}");
+                                                Console.WriteLine($"Mana potions: {wizard.GetManaPotions()}");
                                                 Console.WriteLine();
                                                 Console.Write("Press any key to return to main menu ");
                                                 Console.ReadLine();
