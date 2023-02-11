@@ -27,7 +27,7 @@ class Program
         string completePhase = domain.CompletePhase();
 
         //Create the object word to use the method 
-        Word word = new();
+        Word word = new(true);
 
         //Divide the list for each space between the words
         List<string> list = new();
