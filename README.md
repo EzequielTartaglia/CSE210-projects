@@ -1,4 +1,4 @@
-# CSE210-student-template
+# Course C# (.net) from Brigham Young University: CSE210
 This is the starter code for Ezequiel M. Tartaglia in CSE 210.
 
 This repository contains the starter code for many different projects. They are arranged as follows:
