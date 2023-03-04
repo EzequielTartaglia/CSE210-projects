@@ -17,7 +17,7 @@ public abstract class BaseNPCharacter
 
     //----------- Constructors section (templates)--------------
 
-    //The default Goal when we create
+    //The default BaseNPCharacter when we create
     public BaseNPCharacter()
     {
         //Default values
