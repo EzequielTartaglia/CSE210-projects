@@ -24,7 +24,7 @@ public abstract class BasePlayerCharacter
 
     //----------- Constructors section (templates)--------------
 
-    //The default Goal when we create
+    //The default BasePlayerCharacter when we create
     public BasePlayerCharacter()
     {
         //Default values
