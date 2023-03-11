@@ -15,36 +15,6 @@ public abstract class Goal
     //----------- Constructors section (templates)--------------
 
     //The default Goal when we create
-    public Goal()
-    {
-        //Default values
-        _title = "";
-        _description = "";
-        _pointsToComplete = 0;
-    }
-
-    //When the user only put 1 parameter
-    //Create a Goal name
-    public Goal(string goalName)
-    {
-        //Default values except the name of the Goal
-        _title = goalName;
-        _description = "";
-        _pointsToComplete = 0;
-    }
-
-    //When the user put 2 parameters
-    //Create a Goal name and description
-    public Goal(string goalName, string goalDescription)
-    {
-        //Default values except the name and the description of the Goal
-        _title = goalName;
-        _description = goalDescription;
-        _pointsToComplete = 0;
-    }
-
-    //When the user put 3 parameters
-    //Create a complete Goal object
     public Goal(string goalName, string goalDescription, int pointsArchieved)
     {
         //All the values with values

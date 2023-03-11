@@ -18,29 +18,7 @@ public class CheckListGoal : Goal // SimpleGoal child class of Goal
     //------------------ Constructors section (templates)--------------
 
     //The default CheckList when we create (all the parameters from Goal)
-    public CheckListGoal(string goalName, string goalDescription, int pointsArchieved) : base(goalName, goalDescription, pointsArchieved)
-    {
-        //Default values
-        _title = goalName;
-        _description = goalDescription;
-        _pointsToComplete = pointsArchieved;
-    }
-
-    //When the user only put 1 add parameter
-    //Create a CheckList 
-    public CheckListGoal(string goalName, string goalDescription, int pointsArchieved, int verificationCounter, int currentCounter = 0) : base(goalName, goalDescription, pointsArchieved)
-    {
-        //The normal propieties and the check-counter
-        _title = goalName;
-        _description = goalDescription;
-        _pointsToComplete = pointsArchieved;
-        _verificationCounter = verificationCounter;
-        _currentlyCounter = currentCounter;
-    }
-
-    //When the user only put 2 add parameters
-    //Create a CheckList and bonus
-    public CheckListGoal(string goalName, string goalDescription, int pointsArchieved, int verificationCounter, int bonusGoalCompleted, int currentCounter = 0, bool Goalchecked = false) : base(goalName, goalDescription, pointsArchieved)
+     public CheckListGoal(string goalName, string goalDescription, int pointsArchieved, int verificationCounter, int bonusGoalCompleted, int currentCounter = 0, bool Goalchecked = false) : base(goalName, goalDescription, pointsArchieved)
     {
         //The normal propieties, the check-counter and the bonus when complete the goal
         _title = goalName;
