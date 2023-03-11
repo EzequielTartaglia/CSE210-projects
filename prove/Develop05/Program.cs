@@ -1,3 +1,11 @@
+/*  Notes:
+Eliminate duplicate code in spinner function
+ Reduce the number of lines in the classes to be able to make a cleaner code
+ Eliminate unnecessary or irrelevant constructors
+ Add function to exceed requirements, where it shows the start time of the program (sesion) and the end time, in addition to a counter to see how much time the user is currently in session. (Line 15 and 150 of the code explain the feature)
+ Add a message together the spinner to explain the behavior of it (not is a problem in the load) 
+ */
+
 using System;
 using System.IO;
 class Program
