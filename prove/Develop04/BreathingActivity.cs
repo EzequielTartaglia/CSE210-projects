@@ -60,7 +60,7 @@ public class BreathingActivity : Activity
     public int GetCooldownBreatheActivity(int seconds)
     {
         Console.WriteLine("Let's start...");
-        ShowSpinnerWithText("");
+        ShowSpinnerWithText(" Press enter to initiate the activity");
 
         const int breatheInDuration = 6;
         const int breatheOutDuration = 3;

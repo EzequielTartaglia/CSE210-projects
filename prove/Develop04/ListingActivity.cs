@@ -61,7 +61,7 @@ public class ListingActivity : Activity
         DateTime newTime = DateTime.Now.AddSeconds(original);
 
         Console.WriteLine("Let's start...");
-        ShowSpinnerWithText("");
+        ShowSpinnerWithText(" Press enter to initiate the activity");
 
         Console.Clear();
         Console.WriteLine("List as many responses you can to the following prompt: ");

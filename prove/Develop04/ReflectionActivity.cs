@@ -67,7 +67,7 @@ public class ReflectionActivity : Activity
         string message = "You may begin in: ";
         // mientras queden segundos en el cooldown
         Console.WriteLine("Let's start...");
-        ShowSpinnerWithText("");
+        ShowSpinnerWithText(" Press enter to initiate the activity");
         Console.Clear();
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
