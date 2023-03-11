@@ -4,21 +4,21 @@ class Program
 {
     static void Main(string[] args)
     {
-        DateTime now = DateTime.Now;
+        DateTime start = DateTime.Now;
         bool quitProgramm = false;
         while (quitProgramm != true)
 
         {
             Console.Clear();
-            Console.WriteLine($"Program started at {now.ToString("HH:mm:ss")}");
-            TimeSpan elapsedTime = DateTime.Now - now;
-            
+            Console.WriteLine($"Current session started at {start.ToString("HH:mm:ss")}");
+            TimeSpan elapsedTime = DateTime.Now - start;
+
             /* Function to calculate the time used in the activity */
             string elapsedHours = ((int)elapsedTime.TotalHours).ToString("00");
             string elapsedMinutes = elapsedTime.Minutes.ToString("00");
             string elapsedSeconds = elapsedTime.Seconds.ToString("00");
             string elapsedTimeString = $"{elapsedHours}:{elapsedMinutes}:{elapsedSeconds}";
-            Console.WriteLine("Elapsed time: " + elapsedTimeString);
+            Console.WriteLine($"Elapsed time: {elapsedTimeString}");
 
             Console.WriteLine();
             Console.WriteLine("Menu Options: ");
@@ -146,6 +146,12 @@ class Program
                 case "4":
                     //---------------------------- User decide for finish the program -----------------------
                     quitProgramm = true;
+                    DateTime end = DateTime.Now;
+                    Console.Clear();
+                    Console.WriteLine($"Current session started at {start.ToString("HH:mm:ss")}");
+                    Console.WriteLine($"Current session end at {end.ToString("HH:mm:ss")}");
+                    Console.WriteLine($"Elapsed time: {elapsedTimeString}");
+                    Console.WriteLine();
                     //---------------------------- User decide for finish the program -----------------------
                     break;
 
