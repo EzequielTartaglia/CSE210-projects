@@ -55,174 +55,40 @@ public class BreathingActivity : Activity
     //----------------- Getter & Setter section -----------------
     //-------------------- Methods ------------------------------
 
-
-    private void ShowSpinnerWithText(string text, string position = "left")
-    {
-        string activityName = text;
-        int x = Console.CursorLeft;
-        int y = Console.CursorTop;
-
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(20000);
-
-        DateTime currentTime = DateTime.Now;
-
-        if (position == "left")
-        {
-            while (true)
-            {
-                Console.SetCursorPosition(x, y);
-                Console.Write("| " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("/ " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("— " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("\\ " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("| " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("/ " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("— " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("\\ " + activityName);
-
-                Thread.Sleep(400);
-
-                //If the user press 'Enter'
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter || currentTime < futureTime)
-                {
-                    break;
-                }
-
-            }
-        }
-        if (position == "right")
-        {
-            while (true)
-            {
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " |");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " /");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " —");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " \\");
-
-                Thread.Sleep(400);
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " |");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " /");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " —");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " \\");
-
-                Thread.Sleep(400);
-
-                //If the user press 'Enter'
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter || currentTime < futureTime)
-                {
-                    break;
-                }
-
-            }
-        }
-    }
-
-
     //Method to do a cooldown from the max-time to 0 changing between Breathe in and out
     //The numbers 3 and 6 are choseen from searching about it
     public int GetCooldownBreatheActivity(int seconds)
     {
-        int original = seconds;
-        int copy = original;
-        // inicializar variables
-        int remaining = seconds;
-        bool toggle = true;
-        string message = "Breathe in...";
-        int countdown = 3;
-        // mientras queden segundos en el cooldown
         Console.WriteLine("Let's start...");
         ShowSpinnerWithText("");
-        while (remaining > 0)
+
+        const int breatheInDuration = 6;
+        const int breatheOutDuration = 3;
+
+        int remainingSeconds = seconds;
+        bool isBreathingIn = true;
+        while (remainingSeconds > 0)
         {
             Console.Clear();
 
-            //For each breathe loop
-            while (countdown > 0 && remaining > 0)
+            int countdown = isBreathingIn ? breatheInDuration : breatheOutDuration;
+            string message = isBreathingIn ? "Breathe in..." : "Now breathe out...";
+
+            while (countdown > 0 && remainingSeconds > 0)
             {
                 Console.Clear();
                 Console.WriteLine($"{message} {countdown}");
 
                 Thread.Sleep(1000);
 
-                //Rest 1 for each iteration
                 countdown--;
-                remaining--;
-
-            }
-            //Depends if the breathe is in or out
-            if (message == "Breathe in...")
-            {
-                countdown = 6;
-                Console.Clear();
-            }
-            if (message == "Now Breathe out...")
-            {
-                countdown = 3;
-                Console.Clear();
+                remainingSeconds--;
             }
 
-            //Change the state of the variable (if is true, change to false and reverse)
-            toggle = !toggle;
-            message = toggle ? "Breathe in..." : "Now Breathe out...";
+            isBreathingIn = !isBreathingIn;
         }
 
-        //Return the quantity of seconds the user spend in this activity
-        return original;
+        return seconds;
     }
 
 }

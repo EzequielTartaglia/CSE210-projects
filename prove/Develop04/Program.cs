@@ -4,93 +4,29 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        //Function to show the spiner & text
-        void ShowSpinnerWithText(string text, string position = "left")
-        {
-            string activityName = text;
-            int x = Console.CursorLeft;
-            int y = Console.CursorTop;
-            if (position == "left")
-            {
-                while (true)
-                {
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("| " + activityName);
-
-                    Thread.Sleep(500);
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("/ " + activityName);
-
-                    Thread.Sleep(500);
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("— " + activityName);
-
-                    Thread.Sleep(500);
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("\\ " + activityName);
-
-                    Thread.Sleep(500);
-
-                    //If the user press 'Enter'
-                    if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
-                    {
-                        Console.SetCursorPosition(x + activityName.Length, y);
-                        Console.Write("   ");
-                        Console.WriteLine();
-                        break;
-                    }
-                }
-            }
-            if (position == "right")
-            {
-                while (true)
-                {
-                    Console.SetCursorPosition(x, y);
-                    Console.Write(activityName + " |");
-
-                    Thread.Sleep(500);
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write(activityName + " /");
-
-                    Thread.Sleep(500);
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write(activityName + " —");
-
-                    Thread.Sleep(500);
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write(activityName + " \\");
-
-                    Thread.Sleep(500);
-
-                    //If the user press 'Enter'
-                    if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
-                    {
-                        Console.SetCursorPosition(x + activityName.Length, y);
-                        Console.Write("   ");
-                        Console.WriteLine();
-                        break;
-                    }
-                }
-            }
-        }
-
+        DateTime now = DateTime.Now;
         bool quitProgramm = false;
         while (quitProgramm != true)
 
         {
             Console.Clear();
+            Console.WriteLine($"Program started at {now.ToString("HH:mm:ss")}");
+            TimeSpan elapsedTime = DateTime.Now - now;
+            
+            /* Function to calculate the time used in the activity */
+            string elapsedHours = ((int)elapsedTime.TotalHours).ToString("00");
+            string elapsedMinutes = elapsedTime.Minutes.ToString("00");
+            string elapsedSeconds = elapsedTime.Seconds.ToString("00");
+            string elapsedTimeString = $"{elapsedHours}:{elapsedMinutes}:{elapsedSeconds}";
+            Console.WriteLine("Elapsed time: " + elapsedTimeString);
+
+            Console.WriteLine();
             Console.WriteLine("Menu Options: ");
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start reflecting activity");
             Console.WriteLine("3. Start listing activity");
             Console.WriteLine("4. Quit");
+            Console.WriteLine();
             Console.Write("Select a choise from the menu: ");
             string option = Console.ReadLine();
 
@@ -115,7 +51,7 @@ class Program
                     //Final output (reset the value of the activity's duration)
                     breatheActivity.SetActivityDuration(durationNumberBreathe);
                     Console.WriteLine(breatheActivity.GetFinalActivityMessageDisplay());
-                    ShowSpinnerWithText("");
+                    breatheActivity.ShowSpinnerWithText("");
                     Console.Clear();
                     //------------------------------ User decide for Breathe Activity -----------------------
 
@@ -150,7 +86,7 @@ class Program
                     //List to save the phrases into.
                     List<string> listaToUseQuestions = new List<string> { };
                     listaToUseQuestions.AddRange(questionsReflectionList.GetAllReflectionPhases());
-                    
+
                     //Display the started Breathing Activity menu (name & description)
                     Console.WriteLine(reflectionActivity.GetActivityNameDisplay());
                     Console.WriteLine();
@@ -165,7 +101,7 @@ class Program
                     //Final output (reset the value of the activity's duration)
                     reflectionActivity.SetActivityDuration(durationNumberReflection);
                     Console.WriteLine(reflectionActivity.GetFinalActivityMessageDisplay());
-                    ShowSpinnerWithText("");
+                    reflectionActivity.ShowSpinnerWithText("");
                     Console.Clear();
                     //------------------------------ User decide for Reflection Activity --------------------
                     break;
@@ -199,9 +135,9 @@ class Program
                     Console.WriteLine();
                     //Final output (reset the value of the activity's duration)
                     listingActivity.SetActivityDuration(durationNumberListing);
-                    ShowSpinnerWithText("");
+                    listingActivity.ShowSpinnerWithText("");
                     Console.WriteLine(listingActivity.GetFinalActivityMessageDisplay());
-                    ShowSpinnerWithText("");
+                    listingActivity.ShowSpinnerWithText("");
                     Console.Clear();
                     //------------------------------ User decide for Listing Activity -----------------------
                     break;
