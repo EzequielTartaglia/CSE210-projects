@@ -147,6 +147,7 @@ class Program
                     //---------------------------- User decide for finish the program -----------------------
                     quitProgramm = true;
                     DateTime end = DateTime.Now;
+                    
                     Console.Clear();
                     Console.WriteLine($"Current session started at {start.ToString("HH:mm:ss")}");
                     Console.WriteLine($"Current session end at {end.ToString("HH:mm:ss")}");
