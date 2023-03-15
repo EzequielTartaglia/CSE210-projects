@@ -116,3 +116,16 @@ This repository contains the starter code for many different projects. They are 
 
 •Interaction: The Interaction in the design will be all inside the class Main (about the propieties and methods created in the other classes), using the constructors in the other classes and mix the methods to create the diferent functions inside the program. Also, all the classes will be related with a menu. For other part, the Goal class is an abstract class so could create methods/functions could be modify with the subclasses.
 
+# Final project: Roll Play Game:
+ 
+ Source: https://github.com/EzequielTartaglia/CSE210-projects/tree/main/final/FinalProject
+ 
+ Class diagram image:
+ 
+ ![DiagramaProjectoFinal](https://user-images.githubusercontent.com/96756615/225206746-e7ed8810-e78e-48fe-9fa4-fc84515a6f99.png)
+ 
+ •Base Activity Class - Behaviors & Attributes:  BaseNPCharacter class, and BasePlayerCharacter class (also the Item and Inventory if you consider don't have child) has the behavior of being created with different constructors depending on the data that the user enters to receive and send parameters (through getters and setters), in addition to functions to, in the case of BaseNPCharacter the fight moviments with the different ways to do it. Also the BasePlayerCharacter has some functions additionally to those, like other decitions the user have, like drink potions to recovery, perform and display the skills the character has, and the counter of the skills has to upgrade. In order to talk about the item and inventary classes they have the behaviors to add items to the collection. About the atributes, you could see the differents skills the user and the enemy have to perform (may is unrelevant to talk about all of these)
+
+•Derived Classes - Behaviors & Attributes: To continue with what was stated in the table and not be repetitive, I will talk about the behavior of these classes and their attributes they don't have any more. As for the NPCBanshee: BaseNPCharacter, NPCOrc : BaseNPCharacter, NPCSkullWarrior: BaseNPCharacter don't have behaviors, but for PJArcher : BasePlayerCharacter, PJKnight : BasePlayerCharacter, PJWizard : BasePlayerCharacter have the override the behaviors for the Base class made it with the virtualization.
+
+•Constructors; The classes will be created with differents contructors, one for a "default class" is the class when the user create a new object or the program with some values as a default value ("" or 0 or false), other constructors created with differents uses for some different ocations (we will create one constructor for each parameter put in the object (if the object have 3 parameters, have 4 constructors in total). In order to be more clear, the base class appear in the default constructors of the derived classes, and in each constructor with another parameters (all of the base class also the single parameters).In relation to the constructors, I show the default versions of each one (since it is implied that each one of them can be more specific depending on the parameters that the programmer places)
