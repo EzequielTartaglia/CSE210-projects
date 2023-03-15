@@ -120,7 +120,7 @@ This repository contains the starter code for many different projects. They are 
  
  Source: https://github.com/EzequielTartaglia/CSE210-projects/tree/main/final/FinalProject
  
- Class diagram image:
+ Class diagram image (I use: https://online.visual-paradigm.com/app/diagrams/#) :
  
  ![DiagramaProjectoFinal](https://user-images.githubusercontent.com/96756615/225206746-e7ed8810-e78e-48fe-9fa4-fc84515a6f99.png)
  
