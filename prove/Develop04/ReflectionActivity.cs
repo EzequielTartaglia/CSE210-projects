@@ -55,129 +55,6 @@ public class ReflectionActivity : Activity
     }
 
 
-    private void ShowSpinnerWithText(string text, string position = "left")
-    {
-        string activityName = text;
-        int x = Console.CursorLeft;
-        int y = Console.CursorTop;
-
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(20000);
-
-        DateTime currentTime = DateTime.Now;
-
-        if (position == "left")
-        {
-            while (true)
-            {
-                Console.SetCursorPosition(x, y);
-                Console.Write("| " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("/ " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("— " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("\\ " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("| " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("/ " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("— " + activityName);
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write("\\ " + activityName);
-
-                Thread.Sleep(400);
-
-                //If the user press 'Enter'
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
-                {
-                    Console.SetCursorPosition(x + activityName.Length, y);
-                    Console.Write("   ");
-                    Console.WriteLine();
-                    break;
-                }
-
-            }
-        }
-        if (position == "right")
-        {
-            while (true)
-            {
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " |");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " /");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " —");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " \\");
-
-                Thread.Sleep(400);
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " |");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " /");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " —");
-
-                Thread.Sleep(400);
-
-                Console.SetCursorPosition(x, y);
-                Console.Write(activityName + " \\");
-
-                Thread.Sleep(400);
-
-                //If the user press 'Enter'
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
-                {
-                    Console.SetCursorPosition(x + activityName.Length, y);
-                    Console.Write("   ");
-                    Console.WriteLine();
-                    break;
-                }
-
-            }
-        }
-    }
-
-
     //Method to do a cooldown from the max-time to 0 
     public int GetCooldownReflectionActivity(int seconds, List<string> listToUsePhrases, List<string> listaToUseQuestions)
     {
@@ -190,7 +67,7 @@ public class ReflectionActivity : Activity
         string message = "You may begin in: ";
         // mientras queden segundos en el cooldown
         Console.WriteLine("Let's start...");
-        ShowSpinnerWithText("");
+        ShowSpinnerWithText(" Press enter to initiate the activity");
         Console.Clear();
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
